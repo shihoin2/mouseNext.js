@@ -1,5 +1,124 @@
-@import url("https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Lora:ital,wght@0,700;1,400&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Roboto:wght@400;700&family=Zen+Maru+Gothic:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+/******************* reset *******************/
+
+/******************* common *******************/
+:root {
+  --root-font-size: 16;
+  --system-text-jp: 'Noto Sans JP', sans-serif;
+  --system-text-en: 'Roboto', sans-serif;
+  --user-text-jp-hand: 'Zen Maru Gothic', serif;
+  --user-text-en-hand: 'Caveat', cursive;
+  --user-text-jp-gothic: 'Noto Sans JP', sans-serif;
+  --user-text-en-gothic: 'Inria Serif', sans-serif;
+  --user-text-jp-serif: 'Noto Serif JP', serif;
+  --user-text-en-serif: 'Lora', serif;
+  --text-color: #766765;
+  --border-color: #aad6f9;
+  --main-color: #bff0f6;
+  --header-footer-color-rgba: 191, 240, 246, 0.2;
+  --accent-color: #f5efbf;
+  --main-bg-color: #fff;
+}
+
+body {
+  margin: 0 auto;
+  font-size: var(--root-font-size);
+  font-family: var(--system-text-en);
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+}
+
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 89vh;
+}
+
+h2 {
+  font-size: calc(24 / var(--root-font-size) * 1rem); /*24px*/
+}
+
+h3 {
+  font-size: calc(20 / var(--root-font-size) * 1rem); /*20px*/
+}
+
+/******************* header *******************/
+header {
+  height: 7vh;
+  background-color: rgba(var(--header-footer-color-rgba));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+div {
+  width: calc(130 / var(--root-font-size) * 1rem); /*20px*/
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bff0f6;
+}
+/******************* header *******************/
+
+/******************* footer *******************/
+footer {
+  height: 4vh;
+  background-color: rgba(var(--header-footer-color-rgba));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/******************* footer *******************/
