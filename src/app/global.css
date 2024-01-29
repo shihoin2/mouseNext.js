@@ -39,7 +39,6 @@ select {
   font: inherit;
 }
 p,
-h1,
 h2,
 h3,
 h4,
@@ -83,6 +82,7 @@ body {
 main {
   max-width: 1240px;
   margin: 0 auto;
+  min-height: 89vh;
 }
 
 h2 {
@@ -92,3 +92,33 @@ h2 {
 h3 {
   font-size: calc(20 / var(--root-font-size) * 1rem); /*20px*/
 }
+
+/******************* header *******************/
+header {
+  height: 7vh;
+  background-color: rgba(var(--header-footer-color-rgba));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+div {
+  width: calc(130 / var(--root-font-size) * 1rem); /*20px*/
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bff0f6;
+}
+/******************* header *******************/
+
+/******************* footer *******************/
+footer {
+  height: 4vh;
+  background-color: rgba(var(--header-footer-color-rgba));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/******************* footer *******************/
