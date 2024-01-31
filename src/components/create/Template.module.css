@@ -1,0 +1,14 @@
+.template {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.image {
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+  background-color: #d9d9d938;
+}
