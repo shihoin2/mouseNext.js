@@ -9,39 +9,43 @@ export default function TextBox({ storeHtml, thisArea }) {
   const texTimer = useRef(null)
 
   // useCallback で再レンダリングされる度に実行されないようにする
-  const handleTextChange = useCallback(e => {
-    // テキストを state に保存
-    console.log(thisArea)
-    const newTexts = textBoxes
-    newTexts[thisArea] = e.target.value
-    setTextBoxes(newTexts)
+  const handleTextChange = useCallback(
+    e => {
+      // テキストを state に保存
+      console.log(thisArea)
+      setTextBoxes(prevTextBoxes => {
+        console.log({
+          ...prevTextBoxes,
+          [thisArea]: e.target.value,
+        })
 
-    // タイマーと html 保存の処理
-    storeHtml()
-  }, [])
+        return {
+          ...prevTextBoxes,
+          [thisArea]: e.target.value,
+        }
+      })
+
+      // タイマーと html 保存の処理
+      storeHtml()
+    },
+    [thisArea, setTextBoxes, storeHtml],
+  )
+
+  console.log(textBoxes.work)
 
   return (
-    <div
-      data-text={
-        (thisArea === 'lifeStyle' && textBoxes.lifeStyle) ||
-        (thisArea === 'work' ? textBoxes.work : null) ||
-        (thisArea === 'name_year' ? textBoxes.name_year : null) ||
-        (thisArea === 'will' ? textBoxes.will : null) ||
-        (thisArea === 'fun' ? textBoxes.fun : null) ||
-        (thisArea === 'health' ? textBoxes.health : null)
-      }>
-      <textarea
-        className={styles.text_box}
-        maxlength="104"
-        // value={
-        //   (thisArea === 'lifeStyle' && textBoxes.lifeStyle) ||
-        //   (thisArea === 'work' ? textBoxes.work : null) ||
-        //   (thisArea === 'name_year' ? textBoxes.name_year : null) ||
-        //   (thisArea === 'will' ? textBoxes.will : null) ||
-        //   (thisArea === 'fun' ? textBoxes.fun : null) ||
-        //   (thisArea === 'health' ? textBoxes.health : null)
-        // }
-        onChange={handleTextChange}></textarea>
-    </div>
+    <textarea
+      className={styles.text_box}
+      maxlength="104"
+      // value={
+      //   (thisArea === 'lifeStyle' ? textBoxes.lifeStyle : null) ||
+      //   (thisArea === 'work' ? textBoxes.work : null) ||
+      //   (thisArea === 'name_year' ? textBoxes.name_year : null) ||
+      //   (thisArea === 'will' ? textBoxes.will : null) ||
+      //   (thisArea === 'fun' ? textBoxes.fun : null) ||
+      //   (thisArea === 'health' ? textBoxes.health : null)
+      // }
+      value={textBoxes[thisArea]}
+      onChange={handleTextChange}></textarea>
   )
 }

@@ -21,47 +21,10 @@ export default function Template() {
   // console.log(htmlRef)
   const [board, setBoard, textBoxes, setTextBoxes] = useContext(BoardState)
 
-  // const [boardId, setBoardId] = useState()
-
-  // useEffect(() => {
-  //   const request = {
-  //     user_id: board.user_id,
-  //   }
-
-  //   const createBoard = async () => {
-  //     try {
-  //       console.log(request)
-  //       const response = await axios.post('api/vision_boards/', request)
-  //       console.log(response.data)
-
-  //       // console.log({
-  //       //   ...board,
-  //       //   board_id: response.data,
-  //       // })
-  //       setBoardId(response.data)
-
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   createBoard()
-  // }, [])
-
-  // useEffect(() => {
-  //   if (boardId) {
-  //     setBoard({
-  //       ...board,
-  //       board_id: boardId,
-  //     })
-  //     console.log(board)
-  //   }
-  // }, [boardId])
-
   // 再レンダリングされても消えないように useRef でタイマーを保持
   const timer = useRef(null)
 
   const storeHtml = useCallback(() => {
-    console.log(textBoxes)
     console.log(board)
     // timer にまだタイマーがセットされていたら(5秒未経過)、そのタイマーは削除する
     if (timer.current) {
@@ -70,6 +33,8 @@ export default function Template() {
 
     const requestUpdate = async () => {
       try {
+        console.log(textBoxes)
+
         const request = {
           edited_html: htmlRef.current.innerHTML,
           textBoxes: textBoxes,
@@ -82,27 +47,10 @@ export default function Template() {
         console.log(response)
 
         setBoard({ ...board, html_text: response.data.edited_html })
-        console.log(board.html_text)
       } catch (err) {
         console.log(err)
       }
     }
-
-    // const requestUpdateTexts = async () => {
-    //   try {
-    //     const request = textBoxes
-
-    //     const response = await axios.put(
-    //       `api/vision_boards/${board.board_id}`,
-    //       request,
-    //     )
-    //     console.log(response)
-    //     setBoard({ ...board, html_text: response.data.edited_html })
-    //     console.log(board.html_text)
-    //   } catch (err) {
-    //     console.log(err)
-    //   }
-    // }
 
     // timer に新しいタイマーをセット
     // また5秒からスタートなので、データ保存が延期されることになる
