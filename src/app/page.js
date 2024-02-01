@@ -1,5 +1,5 @@
 import Header from '@/components/Header'
-import Page from '@/components/AddImage';
+import HtmlToImage from '@/components/HtmlToImage';
 
 
 export const metadata = {
