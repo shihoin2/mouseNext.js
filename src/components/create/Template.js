@@ -8,7 +8,9 @@ import {
   useState,
 } from 'react'
 import axios from '@/lib/axios'
+import ToolBar from '@/components/create/ToolBar'
 import TextBox from '@/components/create/TextBox'
+import AddImage from '@/components/AddImage'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
 import { encycle, decycle } from 'json-cyclic'
@@ -84,32 +86,33 @@ export default function Template() {
 
   return (
     <section className={styles.template} ref={htmlRef}>
+      <ToolBar />
       <>
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'work'} />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
         </div>
         <div className={styles.row}>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox
             yearNameBox={true}
             storeHtml={storeHtml}
             thisArea={'name_year'}
           />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'will'} />
         </div>
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'fun'} />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'health'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
         </div>
       </>
     </section>
