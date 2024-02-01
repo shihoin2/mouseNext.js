@@ -92,6 +92,8 @@ main.create {
 
 h2 {
   font-size: calc(24 / var(--root-font-size) * 1rem); /*24px*/
+  /* ksu */
+  background-color: #aad6f9;
 }
 
 h3 {
