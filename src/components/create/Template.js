@@ -19,7 +19,8 @@ import parse from 'html-react-parser'
 export default function Template() {
   const htmlRef = useRef()
   // console.log(htmlRef)
-  const [board, setBoard] = useContext(BoardState)
+  const [board, setBoard, textBoxes, setTextBoxes] = useContext(BoardState)
+
   // const [boardId, setBoardId] = useState()
 
   // useEffect(() => {
@@ -60,43 +61,56 @@ export default function Template() {
   const timer = useRef(null)
 
   const storeHtml = useCallback(() => {
+    console.log(textBoxes)
     console.log(board)
-    console.log('storeHtml called')
     // timer にまだタイマーがセットされていたら(5秒未経過)、そのタイマーは削除する
     if (timer.current) {
       clearTimeout(timer.current)
     }
 
-    const requestUpdateHtml = async () => {
+    const requestUpdate = async () => {
       try {
-        console.log(board.board_id)
         const request = {
           edited_html: htmlRef.current.innerHTML,
+          textBoxes: textBoxes,
         }
 
         const response = await axios.put(
           `api/vision_boards/${board.board_id}`,
           request,
         )
-        console.log(response.data[0])
-        setBoard({ ...board, html_text: response.data[0] })
+        console.log(response)
+
+        setBoard({ ...board, html_text: response.data.edited_html })
         console.log(board.html_text)
       } catch (err) {
         console.log(err)
       }
     }
 
+    // const requestUpdateTexts = async () => {
+    //   try {
+    //     const request = textBoxes
+
+    //     const response = await axios.put(
+    //       `api/vision_boards/${board.board_id}`,
+    //       request,
+    //     )
+    //     console.log(response)
+    //     setBoard({ ...board, html_text: response.data.edited_html })
+    //     console.log(board.html_text)
+    //   } catch (err) {
+    //     console.log(err)
+    //   }
+    // }
+
     // timer に新しいタイマーをセット
     // また5秒からスタートなので、データ保存が延期されることになる
     timer.current = setTimeout(() => {
       // データ保存の処理
-      console.log('html を保存する処理')
-      // const request = {
-      //   edited_html: htmlRef.current.innerHTML,
-      // }
-      // console.log(request)
+      console.log('html, text を保存する処理')
 
-      requestUpdateHtml()
+      requestUpdate()
       // 5 秒後に↑の処理を実行
     }, 5000)
   }, [])
@@ -122,34 +136,34 @@ export default function Template() {
 
   return (
     <section className={styles.template} ref={htmlRef}>
-      {board.html_text ? (
-        parse(board.html_text)
-      ) : (
-        <>
-          <div className={styles.row}>
-            <TextBox id="1" storeHtml={storeHtml} />
-            <div className={styles.image}>{board.html_text}</div>
-            <div className={styles.image}></div>
-            <TextBox id="2" storeHtml={storeHtml} />
-            <div className={styles.image}></div>
-          </div>
-          <div className={styles.row}>
-            <div className={styles.image}></div>
-            <div className={styles.image}></div>
-            <div className={styles.image}></div>
-            <TextBox id="0" yearNameBox={true} storeHtml={storeHtml} />
-            <div className={styles.image}></div>
-            <TextBox id="3" storeHtml={storeHtml} />
-          </div>
-          <div className={styles.row}>
-            <TextBox id="4" storeHtml={storeHtml} />
-            <div className={styles.image}></div>
-            <TextBox id="5" storeHtml={storeHtml} />
-            <div className={styles.image}></div>
-            <div className={styles.image}></div>
-          </div>
-        </>
-      )}
+      <>
+        <div className={styles.row}>
+          <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
+          <div className={styles.image}></div>
+          <div className={styles.image}></div>
+          <TextBox storeHtml={storeHtml} thisArea={'work'} />
+          <div className={styles.image}></div>
+        </div>
+        <div className={styles.row}>
+          <div className={styles.image}></div>
+          <div className={styles.image}></div>
+          <div className={styles.image}></div>
+          <TextBox
+            yearNameBox={true}
+            storeHtml={storeHtml}
+            thisArea={'name_year'}
+          />
+          <div className={styles.image}></div>
+          <TextBox storeHtml={storeHtml} thisArea={'will'} />
+        </div>
+        <div className={styles.row}>
+          <TextBox storeHtml={storeHtml} thisArea={'fun'} />
+          <div className={styles.image}></div>
+          <TextBox storeHtml={storeHtml} thisArea={'health'} />
+          <div className={styles.image}></div>
+          <div className={styles.image}></div>
+        </div>
+      </>
     </section>
   )
 }

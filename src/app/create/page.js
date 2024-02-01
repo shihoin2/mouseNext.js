@@ -25,11 +25,11 @@ export default function Page() {
 
     const createBoard = async () => {
       try {
-        const boardId = await axios.post('api/vision_boards/', request)
+        const response = await axios.post('api/vision_boards/', request)
         // board.current = { ...board, board_id: boardId }
         // console.log(board.current)
         router.push(
-          `/edit?board_id=${boardId.data}&tmp=${board.current.tmp_id}`,
+          `/edit?board_id=${response.data.board_id}&tmp=${board.current.tmp_id}`,
         )
       } catch (err) {
         console.log(err)
