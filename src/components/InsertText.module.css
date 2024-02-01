@@ -1,0 +1,16 @@
+.text_box {
+  width: 271px;
+  height: 197px;
+  background-color: #fffad2;
+  border: none;
+  resize: none;
+  overflow: hidden;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--text-color-rgb), 0.3);
+  line-height: 1.5;
+  outline: none;
+}
+.text_box:invalid {
+  background: #ffd3d3;
+  border: 2px solid #ff0000;
+}

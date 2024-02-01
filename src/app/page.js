@@ -1,4 +1,6 @@
 import Header from '@/components/Header'
+import HtmlToImage from '@/components/HtmlToImage';
+
 
 export const metadata = {
   title: 'WEAVE',
@@ -14,5 +16,4 @@ const Home = () => {
     </>
   )
 }
-
-export default Home
+export default Home;
