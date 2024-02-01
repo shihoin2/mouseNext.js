@@ -21,6 +21,7 @@ export default function Page() {
         console.log(response.data)
         console.log(response.data.textBoxes)
         setData({
+          ...data,
           textBoxes: response.data.textBoxes,
           edited_html: response.data.edited_html,
         })

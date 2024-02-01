@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import axios from '@/lib/axios'
 // import { ThemeProvider } from './context/ThemeContext'
 import { useRouter } from 'next/navigation'
+import ToolBar from '@/components/ToolBar'
 
 export default function Page() {
   const board = useRef({
@@ -41,7 +42,8 @@ export default function Page() {
   // return (
   //   <ThemeProvider>
   //     <Header link={'/'} text={'Preview'} />
-  //     <ToolBar />
+  // <ToolBar />
+  //     <ToolBar / className="create">
   //     <main className="create">
   //       <Template />
   //     </main>
