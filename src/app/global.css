@@ -64,6 +64,7 @@ h6 {
   --user-text-jp-serif: 'Noto Serif JP', serif;
   --user-text-en-serif: 'Lora', serif;
   --text-color: #766765;
+  --text-color-rgb: 118, 103, 101;
   --border-color: #aad6f9;
   --main-color: #bff0f6;
   --header-footer-color-rgba: 191, 240, 246, 0.2;
@@ -85,8 +86,14 @@ main {
   min-height: 89vh;
 }
 
+main.create {
+  min-height: 83vh;
+}
+
 h2 {
   font-size: calc(24 / var(--root-font-size) * 1rem); /*24px*/
+  /* ksu */
+  background-color: #aad6f9;
 }
 
 h3 {
@@ -103,7 +110,7 @@ header {
   padding: 0 30px;
 }
 
-div {
+div.link_btn {
   width: calc(130 / var(--root-font-size) * 1rem); /*20px*/
   height: 70%;
   display: flex;

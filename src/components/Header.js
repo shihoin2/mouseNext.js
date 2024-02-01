@@ -7,7 +7,7 @@ export default function Page({ link, text }) {
       <h1>
         <Logo />
       </h1>
-      <div>
+      <div className="link_btn">
         <Link href={link}>{text}</Link>
       </div>
     </header>
