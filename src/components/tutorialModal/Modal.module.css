@@ -1,0 +1,41 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    60.64% 52.04% at 17.5% 14.74%,
+    rgba(248, 248, 248, 0) 31.77%,
+    rgb(122 122 122 / 57%) 100%
+  );
+}
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  /* border: 1px solid black; */
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+.changeStep {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  background-color: #fff;
+  width: 100px;
+}
+
+.link.right {
+  margin-left: auto;
+}
+
+.link.left {
+  margin-right: auto;
+}

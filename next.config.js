@@ -1,5 +1,6 @@
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
+  // reactStrictMode: true,
   images: {
     domains: ['localhost'],
     remotePatterns: [
