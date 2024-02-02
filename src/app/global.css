@@ -83,7 +83,8 @@ body {
 main {
   max-width: 1240px;
   margin: 0 auto;
-  min-height: 89vh;
+  /* min-height: 83vh; */
+  height: 83vh;
 }
 
 main.create {

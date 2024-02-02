@@ -1,6 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
+import { IconContext } from 'react-icons'
+import { IoIosCloseCircle } from 'react-icons/io'
+import { CgCloseO } from 'react-icons/cg'
 
 import ReactModal from 'react-modal'
 import modalStyles from '@/components/tutorialModal/Modal.module.css'
@@ -19,7 +23,14 @@ import modalStyles from '@/components/tutorialModal/Modal.module.css'
 // body にマウント
 ReactModal.setAppElement('body')
 
-export default function Modal({ isOpen, prev, next, board_id, children }) {
+export default function Modal({
+  isOpen,
+  step,
+  prev,
+  next,
+  board_id,
+  children,
+}) {
   let subtitle
   const [modalIsOpen, setIsOpen] = useState(isOpen)
 
@@ -38,12 +49,13 @@ export default function Modal({ isOpen, prev, next, board_id, children }) {
   console.log(board_id)
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
       <ReactModal
         contentLabel="Example Modal"
         isOpen={modalIsOpen}
-        className={modalStyles.Modal}
-        overlayClassName={modalStyles.Overlay}
+        className={`${modalStyles.Modal} ${modalStyles.step}`}
+        overlayClassName={`${modalStyles.Overlay} ${
+          modalStyles['step' + step]
+        }`}
         // className={modalStyles.customContent} // モーダル内部のスタイル
         // overlayClassName={modalStyles.customOverlay} // オーバーレイのスタイル
         onAfterOpen={afterOpenModal}
@@ -53,21 +65,31 @@ export default function Modal({ isOpen, prev, next, board_id, children }) {
         <div className={modalStyles.changeStep}>
           {prev && (
             <div className={`${modalStyles.link} ${modalStyles.left}`}>
-              <Link
-                href={`/tutorial/step${prev}?board_id=${board_id}`}
-                className={modalStyles.link}>{`◀ ステップ${prev}`}</Link>
+              <IconContext.Provider value={{ color: '#bff0f6', size: '80px' }}>
+                <Link href={`/tutorial/step${prev}?board_id=${board_id}`}>
+                  <FaArrowCircleLeft />
+                </Link>
+              </IconContext.Provider>
             </div>
           )}
           {next === 'last' ? (
-            <Link
-              href={`/edit?board_id=${board_id}`}
-              className={`${modalStyles.link} ${modalStyles.right}`}>
-              スタート！
-            </Link>
+            <div className={`${modalStyles.link} ${modalStyles.right}`}>
+              <IconContext.Provider value={{ color: '#bff0f6', size: '80px' }}>
+                <Link href={`/edit?board_id=${board_id}`}>
+                  {/* <IoIosCloseCircle /> */}
+                  <CgCloseO />
+                </Link>
+              </IconContext.Provider>
+            </div>
           ) : (
             <div className={`${modalStyles.link} ${modalStyles.right}`}>
-              <Link
-                href={`/tutorial/step${next}?board_id=${board_id}`}>{`ステップ${next} ▶`}</Link>
+              <IconContext.Provider value={{ color: '#bff0f6', size: '80px' }}>
+                <Link href={`/tutorial/step${next}?board_id=${board_id}`}>
+                  <FaArrowCircleRight />
+                </Link>
+              </IconContext.Provider>
+
+              {/* href={`/tutorial/step${next}?board_id=${board_id}`}>{`ステップ ${next} ▶`}</Link> */}
             </div>
           )}
         </div>

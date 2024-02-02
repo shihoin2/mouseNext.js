@@ -43,6 +43,8 @@ export default function Template() {
           edited_html: htmlRef.current.innerHTML,
           textBoxes: textBoxes,
         }
+        console.log(request)
+        console.log(htmlRef.current.innerHTML)
 
         const response = await axios.put(
           `api/vision_boards/${board.board_id}`,

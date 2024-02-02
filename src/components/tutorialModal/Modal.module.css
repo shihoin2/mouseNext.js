@@ -4,38 +4,75 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+.Overlay.step1 {
   background: radial-gradient(
-    60.64% 52.04% at 17.5% 14.74%,
+    20.44% 36.18% at 51.32% 42.72%,
     rgba(248, 248, 248, 0) 31.77%,
-    rgb(122 122 122 / 57%) 100%
+    rgba(122 122 122 / 57%) 100%
   );
 }
+.Overlay.step2 {
+  background: radial-gradient(
+    63.44% 62.18% at 51.32% 42.72%,
+    rgba(248, 248, 248, 0) 31.77%,
+    rgba(122 122 122 / 57%) 100%
+  );
+}
+.Overlay.step3 {
+  background: radial-gradient(
+    30.44% 40.18% at 48.32% 38.72%,
+    rgba(248, 248, 248, 0) 31.77%,
+    rgba(122 122 122 / 57%) 100%
+  );
+}
+.Overlay.step4 {
+  background: radial-gradient(
+    20.44% 37.18% at 34.32% 56.72%,
+    rgba(248, 248, 248, 0) 31.77%,
+    rgba(122 122 122 / 57%) 100%
+  );
+}
+
 .Modal {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;
-  /* border: 1px solid black; */
   background-color: rgba(0, 0, 0, 0);
   outline: none;
 }
+
+.Modal.step1 {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
 .changeStep {
-  bottom: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .link {
-  background-color: #fff;
-  width: 100px;
+  text-align: center;
 }
 
 .link.right {
-  margin-left: auto;
+  position: fixed;
+  right: 10%;
 }
 
 .link.left {
-  margin-right: auto;
+  position: fixed;
+  left: 10%;
 }

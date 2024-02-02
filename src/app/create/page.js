@@ -22,12 +22,13 @@ export default function Page() {
     const request = {
       user_id: user,
     }
+    console.log(request)
 
     const createBoard = async () => {
       try {
         const response = await axios.post('api/vision_boards/', request)
         // board.current = { ...board, board_id: boardId }
-        // console.log(board.current)
+        console.log(response)
         router.push(
           `/tutorial/step1?board_id=${response.data.board_id}&tmp=${board.current.tmp_id}`,
         )
