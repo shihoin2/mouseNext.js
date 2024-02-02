@@ -1,14 +1,18 @@
 .template {
   width: 100%;
 }
-
+.board {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
 .row {
   display: flex;
 }
 
-.image {
+/* .image {
   width: 150px;
   height: 200px;
   margin: 10px;
   background-color: #d9d9d938;
-}
+} */

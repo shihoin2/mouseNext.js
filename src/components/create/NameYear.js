@@ -8,3 +8,5 @@ export default function NameYear({ year, name }) {
       </div>
   )
 }
+
+// 使用しない
