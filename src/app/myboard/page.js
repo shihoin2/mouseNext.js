@@ -1,6 +1,5 @@
 import Header from '@/components/Header'
-import FeedTemplate from '@/components/feed/FeedTemplate'
-import HtmlToImage from '@/components/HtmlToImage';
+import FeedMyBoard from '@/components/feed/FeedMyBoard'
 
 export const metadata = {
     title: 'WEAVE',
@@ -9,9 +8,9 @@ export const metadata = {
 const Home = () => {
     return (
         <>
-        <Header link={'/myboard'} text={'My Vision Board'} />
+        <Header link={'/'} text={'Home'} />
         <main>
-            <FeedTemplate />
+            <FeedMyBoard />
         </main>
         </>
     )
