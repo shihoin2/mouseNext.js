@@ -8,10 +8,13 @@ import {
   useState,
 } from 'react'
 import axios from '@/lib/axios'
+import ToolBar from '@/components/create/ToolBar'
 import TextBox from '@/components/create/TextBox'
+import AddImage from '@/components/create/AddImage'
+import NameYear from '@/components/create/NameYear'
+import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
-
 // import { encycle, decycle } from 'json-cyclic'
 // import parse from 'html-react-parser'
 
@@ -91,34 +94,37 @@ export default function Template() {
     }
   }, [handleBeforeUnload])
 
+
   return (
     <section id="modal_target" className={styles.template} ref={htmlRef}>
       <>
+      <NameYear name={'aa'} year={'2024'} />
+      <AreaTitle areaTitle={'work'} />
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'work'} />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
         </div>
         <div className={styles.row}>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox
             yearNameBox={true}
             storeHtml={storeHtml}
             thisArea={'name_year'}
           />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'will'} />
         </div>
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'fun'} />
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
           <TextBox storeHtml={storeHtml} thisArea={'health'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+          <div className={styles.image}><AddImage/></div>
+          <div className={styles.image}><AddImage/></div>
         </div>
       </>
     </section>
