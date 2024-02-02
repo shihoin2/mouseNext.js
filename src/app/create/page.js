@@ -14,7 +14,6 @@ export default function Page() {
   })
   const router = useRouter()
   const query = useSearchParams()
-  const tmp = query.get('tmp')
 
   useEffect(() => {
     const user = 1
@@ -30,7 +29,7 @@ export default function Page() {
         // board.current = { ...board, board_id: boardId }
         // console.log(board.current)
         router.push(
-          `/edit?board_id=${response.data.board_id}&tmp=${board.current.tmp_id}`,
+          `/tutorial/step1?board_id=${response.data.board_id}&tmp=${board.current.tmp_id}`,
         )
       } catch (err) {
         console.log(err)

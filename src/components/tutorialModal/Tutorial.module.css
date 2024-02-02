@@ -1,0 +1,24 @@
+.container {
+  height: 90%;
+  background-color: transparent;
+}
+
+/* .bubble {
+} */
+
+.bubble_name {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(168.665deg);
+  flex-shrink: 0;
+}
+
+.bubble2 {
+  width: 273.344px;
+  height: 188.606px;
+  transform: rotate(32.528deg);
+  flex-shrink: 0;
+}
