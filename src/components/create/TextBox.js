@@ -31,8 +31,6 @@ export default function TextBox({ storeHtml, thisArea }) {
     [thisArea, setTextBoxes, storeHtml],
   )
 
-  console.log(textBoxes.work)
-
   return (
     <textarea
       className={styles.text_box}

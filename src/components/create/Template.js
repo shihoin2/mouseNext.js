@@ -19,7 +19,7 @@ import parse from 'html-react-parser'
 export default function Template() {
   const htmlRef = useRef()
   // console.log(htmlRef)
-  const [board, setBoard, textBoxes, setTextBoxes] = useContext(BoardState)
+  const [board, setBoard, textBoxes] = useContext(BoardState)
 
   // 再レンダリングされても消えないように useRef でタイマーを保持
   const timer = useRef(null)
@@ -68,7 +68,7 @@ export default function Template() {
     if (timer.current) {
       clearTimeout(timer.current)
     }
-    saveToDatabase()
+    storeHtml()
   }
 
   // イベントリスナー

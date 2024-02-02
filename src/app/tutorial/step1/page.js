@@ -1,12 +1,9 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import axios from '@/lib/axios'
 import Edit from '@/app/edit/Edit'
 
 export default function Page() {
-  const query = useSearchParams()
-  const board_id = query.get('board_id')
   const [data, setData] = useState()
 
   useEffect(() => {

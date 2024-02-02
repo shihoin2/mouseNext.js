@@ -28,5 +28,5 @@ export default function Page() {
     getBoard()
   }, [])
 
-  return <Edit tutorial={true} step={1} />
+  return <Edit tutorial={true} step={2} />
 }
