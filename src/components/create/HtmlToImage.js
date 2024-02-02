@@ -4,27 +4,14 @@ import { useRouter, usePathname, useSearchParams  } from 'next/navigation';
 import axios from '@/lib/axios';
 import Image from 'next/image';
 import html2canvas from 'html2canvas';
-import Header from '@/components/Header';
-import Link from 'next/link';
-import next from 'next';
+import Template from '@/components/create/Template';
+import useHtmlToImage from '@/hooks/useHtmlToImage';
+
 
 export default function HtmlToImage() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  const captureImage = async () => {
-    try {
-      const captureElement = document.getElementById('capture');
-      const canvas = await html2canvas(captureElement);
-      const captureDataUrl = canvas.toDataURL("image/png");
-      console.log(captureDataUrl);
-
-      const response = await axios.patch(`http://127.0.0.1:8000/api/vision/capture/1`, { image: captureDataUrl })
-      console.log(response.data);
-    } catch (error) {
-      console.error('Failed to capture image:', error);
-    }
-  }
+  const {captureImage} = useHtmlToImage();
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`
@@ -39,8 +26,7 @@ export default function HtmlToImage() {
   return (
     <>
       <div id='capture'>
-        <h2>Weave</h2>
-        <p>Test</p>
+        <Template/>
       </div>
     </>
   );

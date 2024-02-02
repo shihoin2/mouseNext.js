@@ -1,0 +1,13 @@
+.areaTitle{
+  /* width: 200px;
+  height: 150px;
+  margin: 10px; */
+  background-color: transparent;
+  border: none;
+  resize: none;
+  overflow: hidden;
+  /* text-decoration: underline; */
+  /* text-decoration-color: rgba(var(--text-color-rgb), 0.3); */
+  /* line-height: 1.5; */
+  /* outline: none; */
+}

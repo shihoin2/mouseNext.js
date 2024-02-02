@@ -10,10 +10,12 @@ import {
 import axios from '@/lib/axios'
 import ToolBar from '@/components/create/ToolBar'
 import TextBox from '@/components/create/TextBox'
-import AddImage from '@/components/AddImage'
+import AddImage from '@/components/create/AddImage'
+import NameYear from '@/components/create/NameYear'
+import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
-import { encycle, decycle } from 'json-cyclic'
+// import { encycle, decycle } from 'json-cyclic'
 import parse from 'html-react-parser'
 
 // export const Timer = createContext()
@@ -84,10 +86,12 @@ export default function Template() {
     }
   }, [handleBeforeUnload])
 
+
   return (
     <section className={styles.template} ref={htmlRef}>
-      <ToolBar />
       <>
+      <NameYear name={'aa'} year={'2024'} />
+      <AreaTitle areaTitle={'work'} />
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
           <div className={styles.image}><AddImage/></div>

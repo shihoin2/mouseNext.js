@@ -2,6 +2,7 @@
 import Header from '@/components/Header'
 import ToolBar from '@/components/create/ToolBar'
 import Template from '@/components/create/Template'
+import HtmlToImage from '@/components/create/HtmlToImage'
 import { BoardProvider } from '@/context/BoardContext'
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
@@ -37,7 +38,8 @@ export default function Page() {
       <Header link={'/'} text={'Preview'} />
       <ToolBar />
       <main className="create">
-        <Template />
+        {/* <Template /> */}
+        <HtmlToImage/>
       </main>
     </BoardProvider>
   )
