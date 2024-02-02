@@ -5,7 +5,12 @@
   align-items: center;
   border-bottom: 1px solid var(--border-color);
 }
-
+.left {
+  width: 80vw;
+}
+.right {
+  width: 20vw;
+}
 .item {
   margin-right: 20px;
   padding: 3px;
