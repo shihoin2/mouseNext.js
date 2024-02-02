@@ -35,15 +35,15 @@ export const BoardProvider = ({ tmp, board_id, data, children }) => {
         board_id: board_id,
         html_text: data.edited_html,
       })
-      setBoard(prev => {
-        return {
-          ...prev,
-          user_id: user,
-          tmp_id: tmp,
-          board_id: board_id,
-          html_text: data.edited_html,
-        }
-      })
+      // setBoard(prev => {
+      //   return {
+      //     ...prev,
+      //     user_id: user,
+      //     tmp_id: tmp,
+      //     board_id: board_id,
+      //     html_text: data.edited_html,
+      //   }
+      // })
 
       // setTextBoxes(prev => {
       //   return {

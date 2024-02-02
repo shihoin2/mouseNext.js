@@ -1,17 +1,22 @@
 'use client'
+<<<<<<< HEAD
 import Header from '@/components/Header'
 import ToolBar from '@/components/create/ToolBar'
 import Template from '@/components/create/Template'
 import HtmlToImage from '@/components/create/HtmlToImage'
 import { BoardProvider } from '@/context/BoardContext'
 import { useEffect, useRef, useState } from 'react'
+=======
+>>>>>>> master
 import { useSearchParams } from 'next/navigation'
+import { useState, useEffect, useRef } from 'react'
 import axios from '@/lib/axios'
+import Edit from '@/app/edit/Edit'
 
 export default function Page() {
   const query = useSearchParams()
   const board_id = query.get('board_id')
-  const tmp = query.get('tmp')
+  const DataRef = useRef()
   const [data, setData] = useState()
 
   useEffect(() => {
@@ -21,6 +26,11 @@ export default function Page() {
         const response = await axios.get(`api/vision_boards/${board_id}`)
         console.log(response.data)
         console.log(response.data.textBoxes)
+        console.log(response.data.edited_html)
+        DataRef.current = {
+          textBoxes: response.data.textBoxes,
+          edited_html: response.data.edited_html,
+        }
         setData({
           ...data,
           textBoxes: response.data.textBoxes,
@@ -33,6 +43,7 @@ export default function Page() {
     getBoard()
   }, [])
 
+<<<<<<< HEAD
   return (
     <BoardProvider tmp={tmp} board_id={board_id} data={data}>
       <Header link={'/'} text={'Preview'} />
@@ -43,4 +54,12 @@ export default function Page() {
       </main>
     </BoardProvider>
   )
+=======
+  useEffect(() => {
+    console.log(DataRef.current)
+    console.log(data)
+  })
+
+  return <Edit tutorial={false} step={false} data={data} />
+>>>>>>> master
 }

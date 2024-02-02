@@ -14,20 +14,29 @@ import AddImage from '@/components/create/AddImage'
 import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
+<<<<<<< HEAD
 // import { encycle, decycle } from 'json-cyclic'
 import parse from 'html-react-parser'
+=======
+
+// import { encycle, decycle } from 'json-cyclic'
+// import parse from 'html-react-parser'
+>>>>>>> master
 
 // export const Timer = createContext()
 
 export default function Template() {
   const htmlRef = useRef()
   // console.log(htmlRef)
-  const [board, setBoard, textBoxes, setTextBoxes] = useContext(BoardState)
+  const [board, setBoard, textBoxes] = useContext(BoardState)
 
   // 再レンダリングされても消えないように useRef でタイマーを保持
   const timer = useRef(null)
 
-  const storeHtml = useCallback(() => {
+  // useEffect(()=>{
+
+  // })
+  const storeHtml = () => {
     console.log(board)
     // timer にまだタイマーがセットされていたら(5秒未経過)、そのタイマーは削除する
     if (timer.current) {
@@ -64,15 +73,20 @@ export default function Template() {
       requestUpdate()
       // 5 秒後に↑の処理を実行
     }, 5000)
-  }, [])
+  }
 
   // ページを離れる前にも保存処理を実行
   const handleBeforeUnload = () => {
     if (timer.current) {
       clearTimeout(timer.current)
     }
-    saveToDatabase()
+    storeHtml()
   }
+
+  // useEffect(() => {
+  //   console.log('Template:textBoxes更新！')
+  //   console.log(textBoxes)
+  // }, [textBoxes])
 
   // イベントリスナー
   useEffect(() => {
@@ -87,8 +101,13 @@ export default function Template() {
 
 
   return (
+<<<<<<< HEAD
     <section className={styles.template} ref={htmlRef}>
       <div className={styles.board}>
+=======
+    <section id="modal_target" className={styles.template} ref={htmlRef}>
+      <>
+>>>>>>> master
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} textCategory={'life_style'} />
           <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'life_style1'}/></div>
