@@ -11,8 +11,9 @@ import axios from '@/lib/axios'
 import TextBox from '@/components/create/TextBox'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
-import { encycle, decycle } from 'json-cyclic'
-import parse from 'html-react-parser'
+
+// import { encycle, decycle } from 'json-cyclic'
+// import parse from 'html-react-parser'
 
 // export const Timer = createContext()
 
@@ -24,7 +25,10 @@ export default function Template() {
   // 再レンダリングされても消えないように useRef でタイマーを保持
   const timer = useRef(null)
 
-  const storeHtml = useCallback(() => {
+  // useEffect(()=>{
+
+  // })
+  const storeHtml = () => {
     console.log(board)
     // timer にまだタイマーがセットされていたら(5秒未経過)、そのタイマーは削除する
     if (timer.current) {
@@ -61,7 +65,7 @@ export default function Template() {
       requestUpdate()
       // 5 秒後に↑の処理を実行
     }, 5000)
-  }, [])
+  }
 
   // ページを離れる前にも保存処理を実行
   const handleBeforeUnload = () => {
@@ -70,6 +74,11 @@ export default function Template() {
     }
     storeHtml()
   }
+
+  // useEffect(() => {
+  //   console.log('Template:textBoxes更新！')
+  //   console.log(textBoxes)
+  // }, [textBoxes])
 
   // イベントリスナー
   useEffect(() => {
@@ -83,7 +92,7 @@ export default function Template() {
   }, [handleBeforeUnload])
 
   return (
-    <section className={styles.template} ref={htmlRef}>
+    <section id="modal_target" className={styles.template} ref={htmlRef}>
       <>
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
