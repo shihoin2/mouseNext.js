@@ -9,7 +9,7 @@ export const metadata = {
 const Home = () => {
     return (
         <>
-        <Header link={'/'} text={'My Vision Board'} />
+        <Header link={'/myboard'} text={'My Vision Board'} />
         <main>
             <FeedTemplate />
         </main>
