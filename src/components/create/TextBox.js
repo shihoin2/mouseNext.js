@@ -1,6 +1,8 @@
 'use client'
 import { useCallback, useState, useRef, useEffect, useContext } from 'react'
+import modalStyles from '@/components/tutorialModal/Modal.module.css'
 import styles from '@/components/create/TextBox.module.css'
+
 import { BoardState } from '@/context/BoardContext'
 
 export default function TextBox({ storeHtml, thisArea }) {
@@ -31,11 +33,9 @@ export default function TextBox({ storeHtml, thisArea }) {
     [thisArea, setTextBoxes, storeHtml],
   )
 
-  console.log(textBoxes.work)
-
   return (
     <textarea
-      className={styles.text_box}
+      className={`${styles.text_box}`}
       maxlength="104"
       // value={
       //   (thisArea === 'lifeStyle' ? textBoxes.lifeStyle : null) ||

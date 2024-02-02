@@ -1,23 +1,24 @@
 import Header from '@/components/Header'
-
 import Template from '@/components/create/Template'
 import HtmlToImage from '@/components/create/HtmlToImage';
 import AddImage from '@/components/create/AddImage';
-import HttpToImage from '@/components/create/HtmlToImage';
+import FeedTemplate from '@/components/feed/FeedTemplate'
+
 
 
 export const metadata = {
-  title: 'WEAVE',
+    title: 'WEAVE',
 }
 
 const Home = () => {
-  return (
-    <>
-      <Header link={'/'} text={'My Vision Board'} />
-      <main>
-        <HttpToImage/>
-      </main>
-    </>
-  )
+
+    return (
+        <>
+        <Header link={'/myboard'} text={'My Vision Board'} />
+        <main>
+            <FeedTemplate />
+        </main>
+        </>
+    )
 }
 export default Home;
