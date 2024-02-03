@@ -7,7 +7,6 @@ import Edit from '@/app/edit/Edit'
 export const Page = () => {
   const query = useSearchParams()
   const board_id = query.get('board_id')
-  // const DataRef = useRef()
   const [data, setData] = useState()
 
   useEffect(() => {

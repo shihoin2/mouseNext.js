@@ -11,7 +11,31 @@
     rgba(248, 248, 248, 0) 31.77%,
     rgba(122 122 122 / 57%) 100%
   );
+  /* animation: step1 forwards 3s linear 3s alternate; */
 }
+/* @keyframes step1 {
+  0% {
+    background: radial-gradient(
+      100% 100% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      52.44% 52.18% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      20.44% 36.18% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+} */
 .Overlay.step2 {
   background: radial-gradient(
     63.44% 62.18% at 51.32% 42.72%,

@@ -1,5 +1,7 @@
-import styles from './ToolBar.module.css'
+import Link from 'next/link'
 import { GoQuestion } from 'react-icons/go'
+import { IconContext } from 'react-icons'
+import styles from './ToolBar.module.css'
 
 export default function ToolBar() {
   return (
@@ -11,8 +13,12 @@ export default function ToolBar() {
         <div className={styles.item}>Text Box Color</div>
       </div>
       <div className={styles.right}>
-        <div>
-          <GoQuestion />
+        <div className={styles.help}>
+          <Link href={'/edit/help'}>
+            <IconContext.Provider value={{ color: '#bff0f6', size: '30px' }}>
+              <GoQuestion />
+            </IconContext.Provider>
+          </Link>
         </div>
       </div>
     </div>

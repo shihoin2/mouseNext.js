@@ -2,9 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import axios from '@/lib/axios'
-// import { ThemeProvider } from './context/ThemeContext'
 import { useRouter } from 'next/navigation'
-import ToolBar from '@/components/ToolBar'
 
 export default function Page() {
   const board = useRef({
@@ -27,7 +25,6 @@ export default function Page() {
     const createBoard = async () => {
       try {
         const response = await axios.post('api/vision_boards/', request)
-        // board.current = { ...board, board_id: boardId }
         console.log(response)
         router.push(
           `/tutorial/step1?board_id=${response.data.board_id}&tmp=${board.current.tmp_id}`,
@@ -38,15 +35,4 @@ export default function Page() {
     }
     createBoard()
   }, [])
-
-  // return (
-  //   <ThemeProvider>
-  //     <Header link={'/'} text={'Preview'} />
-  // <ToolBar />
-  //     <ToolBar / className="create">
-  //     <main className="create">
-  //       <Template />
-  //     </main>
-  //   </ThemeProvider>
-  // )
 }

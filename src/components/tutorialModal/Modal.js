@@ -3,22 +3,10 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
-import { IoIosCloseCircle } from 'react-icons/io'
 import { CgCloseO } from 'react-icons/cg'
 
 import ReactModal from 'react-modal'
 import modalStyles from '@/components/tutorialModal/Modal.module.css'
-
-// const customStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//   },
-// }
 
 // body にマウント
 ReactModal.setAppElement('body')
@@ -50,14 +38,12 @@ export default function Modal({
   return (
     <div>
       <ReactModal
-        contentLabel="Example Modal"
+        contentLabel="Tutorial Modal"
         isOpen={modalIsOpen}
         className={`${modalStyles.Modal} ${modalStyles.step}`}
         overlayClassName={`${modalStyles.Overlay} ${
           modalStyles['step' + step]
         }`}
-        // className={modalStyles.customContent} // モーダル内部のスタイル
-        // overlayClassName={modalStyles.customOverlay} // オーバーレイのスタイル
         onAfterOpen={afterOpenModal}
         shouldCloseOnOverlayClick={false}
         onRequestClose={closeModal}>
@@ -76,7 +62,6 @@ export default function Modal({
             <div className={`${modalStyles.link} ${modalStyles.right}`}>
               <IconContext.Provider value={{ color: '#bff0f6', size: '80px' }}>
                 <Link href={`/edit?board_id=${board_id}`}>
-                  {/* <IoIosCloseCircle /> */}
                   <CgCloseO />
                 </Link>
               </IconContext.Provider>
@@ -88,8 +73,6 @@ export default function Modal({
                   <FaArrowCircleRight />
                 </Link>
               </IconContext.Provider>
-
-              {/* href={`/tutorial/step${next}?board_id=${board_id}`}>{`ステップ ${next} ▶`}</Link> */}
             </div>
           )}
         </div>

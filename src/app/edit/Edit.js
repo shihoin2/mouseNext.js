@@ -1,7 +1,5 @@
-// 'use client'
 import { useSearchParams } from 'next/navigation'
 import { BoardProvider } from '@/context/BoardContext'
-import { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import ToolBar from '@/components/create/ToolBar'
 import Template from '@/components/create/Template'

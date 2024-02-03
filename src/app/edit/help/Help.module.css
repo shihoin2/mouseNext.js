@@ -1,0 +1,8 @@
+.container {
+  min-height: 86vh;
+  height: 86vh;
+}
+
+.thumbnail {
+  margin: 2% auto;
+}
