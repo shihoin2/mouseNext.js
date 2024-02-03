@@ -8,10 +8,14 @@ import Template from '@/components/create/Template';
 import useHtmlToImage from '@/hooks/useHtmlToImage';
 
 
-export default function HtmlToImage() {
+export default function HtmlToImage({children}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const {captureImage} = useHtmlToImage();
+
+  // useEffect(() => {
+  //   captureImage();
+  // }, [pathname, searchParams, captureImage]);
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`
@@ -26,7 +30,8 @@ export default function HtmlToImage() {
   return (
     <>
       <div id='capture'>
-        <Template/>
+        {/* <Template/> */}
+        {children}
       </div>
     </>
   );

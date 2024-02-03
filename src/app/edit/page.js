@@ -54,7 +54,9 @@ export default function Page() {
       <Header link={'/'} text={'Preview'} />
       <ToolBar />
       <main className="create">
-        <HtmlToImage/>
+        <HtmlToImage>
+          <Template />
+          </HtmlToImage>
       </main>
     </BoardProvider>
     </>
