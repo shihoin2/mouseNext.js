@@ -1,7 +1,8 @@
-.areaTitle{
+.categoryTitle {
   /* width: 200px;
   height: 150px;
   margin: 10px; */
+
   background-color: transparent;
   border: none;
   resize: none;
@@ -10,4 +11,86 @@
   /* text-decoration-color: rgba(var(--text-color-rgb), 0.3); */
   /* line-height: 1.5; */
   /* outline: none; */
+}
+
+.Life-Style {
+  position: absolute;
+  z-index:1;
+  width: 135px;
+  height: 38px;
+  top: 130px;
+  left: 140px;
+  transform: rotate(6.3deg);
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+
+}
+
+.Work {
+  position: absolute;
+  width: 80px;
+  height: 38px;
+  top: 0px;
+  left: 650px;
+  transform: rotate(-7.66deg);
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+
+
+
+}
+
+.Fun {
+  position: absolute;
+  width: 58px;
+  height: 38px;
+  top: 300px;
+  left: 140px;
+  transform: rotate(-14.86deg);
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+
+}
+
+.Will {
+  position: absolute;
+  width: 60px;
+  height: 38px;
+  top: 320px;
+  left: 850px;
+  transform: rotate(-5deg);
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.Health {
+  position: absolute;
+  width: 100px;
+  height: 38px;
+  top: 450px;
+  left: 550px;
+  transform: rotate(8.01deg);
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+
 }

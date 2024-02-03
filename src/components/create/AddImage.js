@@ -4,7 +4,7 @@ import axios from '@/lib/axios';
 import Image from 'next/image';
 import styles from './AddImage.module.css';
 
-export default function AddImage() {
+export default function AddImage({imageStyle, imageCategory}) {
   const [imagePath, setImagePath] = useState(null);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const fileInputRef = useRef(null);
@@ -42,14 +42,12 @@ export default function AddImage() {
   }
 
   return (
-    <div className={styles.imageContent}
+    <div className={`${styles['imageContent']} ${styles[imageStyle]} ${styles[imageCategory]}`}
       onMouseEnter={() => setShowDeleteButton(true)}
       onMouseLeave={() => setShowDeleteButton(false)}
     >
       {imagePath ? (
-        // <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          // <div onClick={handleImageClick} style={{ position: 'relative', width: '100%', height: '100%' }}>
-          <div onClick={handleImageClick} className={styles.imageContent}>
+           <div onClick={handleImageClick} className={`${styles['imageContent']} ${styles[imageStyle]} ${styles[imageCategory]}`}>
             <Image
               src={imagePath}
               alt="image"
@@ -76,7 +74,8 @@ export default function AddImage() {
           />
           <button
             onClick={handleImageClick}
-            className={styles.editImage}
+            // className={`${styles['editImage']} ${styles[imageStyle]} ${styles[imageCategory]}`}
+            className={`${styles['editImage']}`}
           >+</button>
         </>
       )}

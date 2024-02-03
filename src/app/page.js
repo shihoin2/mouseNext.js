@@ -11,7 +11,6 @@ export const metadata = {
 }
 
 const Home = () => {
-
     return (
         <>
         <Header link={'/myboard'} text={'My Vision Board'} />
@@ -19,6 +18,7 @@ const Home = () => {
             <FeedTemplate />
         </main>
         </>
-    )
+    );
+
 }
 export default Home;
