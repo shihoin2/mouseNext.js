@@ -111,13 +111,14 @@ header {
   padding: 0 30px;
 }
 
-div.link_btn {
+header div.link_btn {
   width: calc(130 / var(--root-font-size) * 1rem); /*20px*/
   height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #bff0f6;
+  border-radius: 5%;
 }
 /******************* header *******************/
 
