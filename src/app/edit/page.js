@@ -48,15 +48,7 @@ export default function Page() {
 
   return (
     <>
-    <Edit tutorial={false} step={false} data={data} />
-
-        <BoardProvider tmp={tmp} board_id={board_id} data={data}>
-      <Header link={'/'} text={'Preview'} />
-      <ToolBar />
-      <main className="create">
-        <HtmlToImage/>
-      </main>
-    </BoardProvider>
+      <Edit tutorial={false} step={false} data={data} />
     </>
-);
+  );
 }
