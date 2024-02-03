@@ -4,38 +4,107 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+/* 要調整 */
+.Overlay.step1 {
   background: radial-gradient(
-    60.64% 52.04% at 17.5% 14.74%,
-    rgba(248, 248, 248, 0) 31.77%,
-    rgb(122 122 122 / 57%) 100%
+    10% 10% at 50% 37%,
+    rgba(248, 248, 248, 0) 80%,
+    rgba(122 122 122 / 57%) 100%
+  );
+  /* animation: step1 forwards 3s linear 3s alternate; */
+}
+/* @keyframes step1 {
+  0% {
+    background: radial-gradient(
+      100% 100% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      52.44% 52.18% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      20.44% 36.18% at 51.32% 42.72%,
+      rgba(248, 248, 248, 0) 31.77%,
+      rgba(122 122 122 / 57%) 100%
+    );
+  }
+} */
+
+/* 要調整 */
+.Overlay.step2 {
+  background: radial-gradient(
+    30% 40% at 47% 40%,
+    rgba(248, 248, 248, 0) 80%,
+    rgba(122 122 122 / 57%) 100%
   );
 }
+
+/* 要調整 */
+.Overlay.step3 {
+  background: radial-gradient(
+    11% 15% at 53% 55%,
+    rgba(248, 248, 248, 0) 80%,
+    rgba(122 122 122 / 57%) 100%
+  );
+}
+
+/* 要調整 */
+.Overlay.step4 {
+  background: radial-gradient(
+    6% 16% at 44% 54%,
+    rgba(248, 248, 248, 0) 80%,
+    rgba(122 122 122 / 57%) 100%
+  );
+}
+
 .Modal {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;
-  /* border: 1px solid black; */
   background-color: rgba(0, 0, 0, 0);
   outline: none;
 }
+
+.Modal.step1 {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
 .changeStep {
-  bottom: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .link {
-  background-color: #fff;
-  width: 100px;
+  text-align: center;
 }
 
 .link.right {
-  margin-left: auto;
+  position: fixed;
+  right: 10%;
 }
 
 .link.left {
-  margin-right: auto;
+  position: fixed;
+  left: 10%;
 }
