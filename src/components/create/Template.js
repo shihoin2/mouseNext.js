@@ -14,6 +14,7 @@ import AddImage from '@/components/create/AddImage'
 import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
+import HtmlToImage from './HtmlToImage';
 
 // import { encycle, decycle } from 'json-cyclic'
 // import parse from 'html-react-parser'
@@ -96,23 +97,15 @@ export default function Template() {
 
 
   return (
-
     <section id="modal_target" className={styles.template} ref={htmlRef}>
       <div className={styles.board}>
-
         <div className={styles.row}>
           <div className={styles.categoryTitle}><AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} /></div>
-
           <div className={styles.categoryTitle}><AreaTitle areaTitle={'Work'} titleStyle={'Work'} /></div>
-
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} textCategory={'life_style'} />
-
           <div className={styles.image}><AddImage imagePlace={'life-image1'} imageStyle={'vertical'} imageCategory={'life_style1'} /></div>
-
           <div className={styles.image}><AddImage imagePlace={'work-image1'} imageStyle={'boarder'} imageCategory={'work1'} /></div>
-
           <TextBox storeHtml={storeHtml} thisArea={'work'} textCategory={'work'} />
-
           <div className={styles.image}><AddImage imagePlace={'work-image2'} imageStyle={'vertical'} imageCategory={'work2'} /></div>
         </div>
 
@@ -141,7 +134,9 @@ export default function Template() {
           <div className={styles.image}><AddImage imagePlace={'health-image2'} imageStyle={'boarder'} imageCategory={'health2'} /></div>
           <div className={styles.image}><AddImage imagePlace={'will-image2'} imageStyle={'boarder'} imageCategory={'will2'} /></div>
         </div>
+
       </div>
     </section>
-  )
+  );
+
 }

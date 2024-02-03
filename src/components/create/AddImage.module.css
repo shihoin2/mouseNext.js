@@ -17,15 +17,15 @@
 
 
 .imageContent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* border: 1px solid #000; */
-  overflow: hidden;
+  /* position: absolute; */
+  /* width: 100%; */
+  /* height: 100%; */
+
+  /* overflow: hidden; */
 }
 
 .editImage {
-  /* position: absolute; */
+
   top: 0;
   left: 0;
   width: 100%;
@@ -40,14 +40,14 @@
 }
 
 .boarder {
-  /* position: absolute; */
+
   width: 180px;
   height: 130px;
   background-color: #D9D9D938;
 }
 
 .vertical {
-  /* position: absolute; */
+
   width: 130px;
   height: 180px;
   background-color: #D9D9D938;
