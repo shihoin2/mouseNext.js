@@ -2,8 +2,9 @@
 import { useState, useRef } from 'react';
 import axios from '@/lib/axios';
 import Image from 'next/image';
+import styles from './AddImage.module.css';
 
-export default function Page() {
+export default function AddImage({imageStyle, imageCategory}) {
   const [imagePath, setImagePath] = useState(null);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const fileInputRef = useRef(null);
@@ -41,41 +42,25 @@ export default function Page() {
   }
 
   return (
-    <div
-      style={{ position: 'relative', width: '200px', height: '200px', border: '1px solid #000', overflow: 'hidden' }}
+    <div className={`${styles['imageContent']} ${styles[imageStyle]} ${styles[imageCategory]}`}
       onMouseEnter={() => setShowDeleteButton(true)}
       onMouseLeave={() => setShowDeleteButton(false)}
     >
       {imagePath ? (
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          <div onClick={handleImageClick} style={{ position: 'relative', width: '100%', height: '100%' }}>
+           <div onClick={handleImageClick} className={`${styles['imageContent']} ${styles[imageStyle]} ${styles[imageCategory]}`}>
             <Image
               src={imagePath}
               alt="image"
               layout="fill"
               objectFit="cover"
+              sizes="(max-width: 600px) 100vw, 600px"//これないと、表示ﾌｫｰﾑのサイズによっては画像が表示されない
             />
-          </div>
+          {/* </div> */}
           {showDeleteButton && (
             <button
               onClick={handleDeleteClick}
-              style={{
-                position: 'absolute',
-                top: '-10px',
-                right: '-10px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                borderRadius: '50%',
-                width: '30px',
-                height: '30px',
-                cursor: 'pointer',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                fontSize: '16px',
-              }}
-              className="delete-button"
-            >×</button>
+              className={styles['delete-button']}
+            >+</button>
           )}
         </div>
       ) : (
@@ -89,16 +74,8 @@ export default function Page() {
           />
           <button
             onClick={handleImageClick}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              cursor: 'pointer',
-              backgroundColor: 'transparent',
-              border: 'none',
-            }}
+            // className={`${styles['editImage']} ${styles[imageStyle]} ${styles[imageCategory]}`}
+            className={`${styles['editImage']}`}
           >+</button>
         </>
       )}

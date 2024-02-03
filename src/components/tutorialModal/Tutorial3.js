@@ -20,7 +20,7 @@ export default function Tutorial3({ board_id, step }) {
             <p>
               黄色のボックスには、
               <br />
-              夢や目標、理想の生活を
+              各項目に対する目標や想いを
               <br />
               記入しましょう！
             </p>

@@ -1,8 +1,30 @@
 .container {
-  min-height: 86vh;
-  height: 86vh;
+  min-height: 89vh;
+  height: 89vh;
+}
+
+.top {
+  display: flex;
+  height: 55%;
+  padding: 30px;
 }
 
 .thumbnail {
-  margin: 2% auto;
+  padding-left: 30px;
+}
+
+.bottom {
+  padding: 30px;
+  height: 45%;
+}
+
+.answerArea {
+  background-color: #aad6f94d;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+}
+
+.list {
+  margin-bottom: 10px;
 }

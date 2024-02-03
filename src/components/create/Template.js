@@ -8,10 +8,12 @@ import {
   useState,
 } from 'react'
 import axios from '@/lib/axios'
+import ToolBar from '@/components/create/ToolBar'
 import TextBox from '@/components/create/TextBox'
+import AddImage from '@/components/create/AddImage'
+import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
-
 // import { encycle, decycle } from 'json-cyclic'
 // import parse from 'html-react-parser'
 
@@ -93,36 +95,46 @@ export default function Template() {
     }
   }, [handleBeforeUnload])
 
+
   return (
+
     <section id="modal_target" className={styles.template} ref={htmlRef}>
-      <>
+      <div className={styles.board}>
+
         <div className={styles.row}>
-          <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
-          <TextBox storeHtml={storeHtml} thisArea={'work'} />
-          <div className={styles.image}></div>
+          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} /></div>
+          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Work'} titleStyle={'Work'} /></div>
+          <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} textCategory={'life_style'} />
+          <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'life_style1'} /></div>
+          <div className={styles.image}><AddImage imageStyle={'boarder'} imageCategory={'work1'} /></div>
+          <TextBox storeHtml={storeHtml} thisArea={'work'} textCategory={'work'} />
+          <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'work2'} /></div>
         </div>
         <div className={styles.row}>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+
+        <div className={styles.categoryTitle}><AreaTitle areaTitle={'Fun'} titleStyle={'Fun'} /></div>
+          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Will'} titleStyle={'Will'} /></div>
+          <div className={styles.image}><AddImage imageStyle={'boarder'} imageCategory={'life_style2'} /></div>
+          <div className={styles.image}><AddImage imageStyle={'boarder'} imageCategory={'fun1'} /></div>
+          <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'fun2'} /></div>
           <TextBox
             yearNameBox={true}
             storeHtml={storeHtml}
             thisArea={'name_year'}
+            textCategory={'name_year'}
           />
-          <div className={styles.image}></div>
-          <TextBox storeHtml={storeHtml} thisArea={'will'} />
+          <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'will1'} /></div>
+          <TextBox storeHtml={storeHtml} thisArea={'will'} textCategory={'will'} />
         </div>
         <div className={styles.row}>
-          <TextBox storeHtml={storeHtml} thisArea={'fun'} />
-          <div className={styles.image}></div>
-          <TextBox storeHtml={storeHtml} thisArea={'health'} />
-          <div className={styles.image}></div>
-          <div className={styles.image}></div>
+        <div className={styles.categoryTitle}><AreaTitle areaTitle={'Health'} titleStyle={'Health'} /></div>
+          <TextBox storeHtml={storeHtml} thisArea={'fun'} textCategory={'fun'} />
+          <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'health1'} /></div>
+          <TextBox storeHtml={storeHtml} thisArea={'health'} textCategory={'health'} />
+          <div className={styles.image}><AddImage imageStyle={'boarder'} imageCategory={'health2'} /></div>
+          <div className={styles.image}><AddImage imageStyle={'boarder'} imageCategory={'will2'} /></div>
         </div>
-      </>
+      </div>
     </section>
   )
 }

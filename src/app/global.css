@@ -84,11 +84,11 @@ main {
   max-width: 1240px;
   margin: 0 auto;
   min-height: 83vh;
-  height: 83vh;
 }
 
 main.create {
   min-height: 83vh;
+  height: 83vh;
 }
 
 h2 {

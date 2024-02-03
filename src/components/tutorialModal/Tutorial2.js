@@ -20,9 +20,7 @@ export default function Tutorial2({ board_id, step }) {
             <p>
               ６つの項目があります！
               <br />
-              夢や目標、理想の生活を
-              <br />
-              記入したり...
+              夢や目標、理想の生活...
             </p>
           </div>
         </div>
@@ -39,7 +37,7 @@ export default function Tutorial2({ board_id, step }) {
             <p>
               どんな１年にしたいか
               <br />
-              イメージしてみましょう！
+              想いを膨らませましょう！
             </p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import styles from '@/components/create/TextBox.module.css'
 
 import { BoardState } from '@/context/BoardContext'
 
-export default function TextBox({ storeHtml, thisArea }) {
+export default function TextBox({ storeHtml, thisArea, textCategory }) {
   const [, , textBoxes, setTextBoxes] = useContext(BoardState)
   // 再レンダリングされても消えないように useRef で texTimer を保持
   const texTimer = useRef(null)
@@ -35,7 +35,10 @@ export default function TextBox({ storeHtml, thisArea }) {
 
   return (
     <textarea
-      className={`${styles.text_box}`}
+
+      // className={styles.text_box}
+      className={`${styles['text_box']} ${styles[textCategory]}`}
+
       maxlength="104"
       value={textBoxes[thisArea]}
       onChange={handleTextChange}></textarea>

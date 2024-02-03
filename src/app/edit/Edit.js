@@ -17,7 +17,7 @@ export default function Edit({ tutorial, step, data }) {
   return (
     <>
       <BoardProvider tmp={tmp} board_id={board_id} data={data}>
-        <Header link={'/'} text={'Preview'} />
+        <Header link={'/myboard'} text={'Preview'} />
         <ToolBar />
         <main className={modalStyles.hidden}>
           <Template />
