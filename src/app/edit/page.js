@@ -1,13 +1,9 @@
 'use client'
-<<<<<<< HEAD
 import Header from '@/components/Header'
 import ToolBar from '@/components/create/ToolBar'
 import Template from '@/components/create/Template'
 import HtmlToImage from '@/components/create/HtmlToImage'
 import { BoardProvider } from '@/context/BoardContext'
-import { useEffect, useRef, useState } from 'react'
-=======
->>>>>>> master
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import axios from '@/lib/axios'
@@ -43,9 +39,16 @@ export default function Page() {
     getBoard()
   }, [])
 
-<<<<<<< HEAD
+
+  useEffect(() => {
+    console.log(DataRef.current)
+    console.log(data)
+  })
+
   return (
-    <BoardProvider tmp={tmp} board_id={board_id} data={data}>
+    <>
+    <Edit tutorial={false} step={false} data={data} />
+        <BoardProvider tmp={tmp} board_id={board_id} data={data}>
       <Header link={'/'} text={'Preview'} />
       <ToolBar />
       <main className="create">
@@ -53,13 +56,6 @@ export default function Page() {
         <HtmlToImage/>
       </main>
     </BoardProvider>
-  )
-=======
-  useEffect(() => {
-    console.log(DataRef.current)
-    console.log(data)
-  })
-
-  return <Edit tutorial={false} step={false} data={data} />
->>>>>>> master
+    </>
+);
 }

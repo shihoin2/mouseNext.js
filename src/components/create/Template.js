@@ -14,14 +14,8 @@ import AddImage from '@/components/create/AddImage'
 import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
-<<<<<<< HEAD
-// import { encycle, decycle } from 'json-cyclic'
-import parse from 'html-react-parser'
-=======
-
 // import { encycle, decycle } from 'json-cyclic'
 // import parse from 'html-react-parser'
->>>>>>> master
 
 // export const Timer = createContext()
 
@@ -101,13 +95,10 @@ export default function Template() {
 
 
   return (
-<<<<<<< HEAD
-    <section className={styles.template} ref={htmlRef}>
-      <div className={styles.board}>
-=======
+
     <section id="modal_target" className={styles.template} ref={htmlRef}>
-      <>
->>>>>>> master
+      <div className={styles.board}>
+
         <div className={styles.row}>
           <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} textCategory={'life_style'} />
           <div className={styles.image}><AddImage imageStyle={'vertical'} imageCategory={'life_style1'}/></div>

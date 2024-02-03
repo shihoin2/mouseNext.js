@@ -18,11 +18,9 @@
     "axios": "^0.21.1",
     "html-react-parser": "^5.1.1",
     "html2canvas": "^1.4.1",
-<<<<<<< HEAD
-    "json-cyclic": "^1.0.2",
-=======
+
     "micromodal": "^0.4.10",
->>>>>>> master
+
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
