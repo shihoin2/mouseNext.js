@@ -28,3 +28,7 @@
 .list {
   margin-bottom: 10px;
 }
+
+.selected {
+  color: #AAD6F9;
+}

@@ -46,7 +46,7 @@ export default function Page({ boart_id }) {
                   onClick={() => {
                     toggleOpen('q1')
                   }}>
-                  <h3>Q1 : Vision Board とはなんですか？</h3>
+                  <h3 className={isOpen.q1 && styles.selected}>Q1 : Vision Board とはなんですか？</h3>
                 </button>
               </li>
               <li className={styles.list}>
@@ -54,7 +54,7 @@ export default function Page({ boart_id }) {
                   onClick={() => {
                     toggleOpen('q2')
                   }}>
-                  <h3>Q2 : 各項目について詳しく知りたい</h3>
+                  <h3 className={isOpen.q2 && styles.selected}>Q2 : 各項目について詳しく知りたい</h3>
                 </button>
               </li>
               <li className={styles.list}>
@@ -62,7 +62,7 @@ export default function Page({ boart_id }) {
                   onClick={() => {
                     toggleOpen('q3')
                   }}>
-                  <h3>Q3 : 目標の記入・保存方法について</h3>
+                  <h3 className={isOpen.q3 && styles.selected}>Q3 : 目標の記入・保存方法について</h3>
                 </button>
               </li>
               <li className={styles.list}>
@@ -70,7 +70,7 @@ export default function Page({ boart_id }) {
                   onClick={() => {
                     toggleOpen('q4')
                   }}>
-                  <h3>Q4 : 画像のアップロード方法を教えて！</h3>
+                  <h3 className={isOpen.q4 && styles.selected}>Q4 : 画像のアップロード方法を教えて！</h3>
                 </button>
               </li>
             </ul>

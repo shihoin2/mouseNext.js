@@ -4,6 +4,8 @@ export default function Answer1() {
   return (
     <>
       <div className={styles.answerArea}>
+        <h3>Q1 : Vision Board とはなんですか？</h3>
+        <br />
         <h3>A1 : Vision Board とは</h3>
         Vision
         board（ビジョンボード）は、自分の目標や願望を視覚的に表現するために作成するツールやアクティビティの一つです。

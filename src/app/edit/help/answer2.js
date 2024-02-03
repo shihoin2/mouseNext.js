@@ -4,6 +4,8 @@ export default function Answer2() {
   return (
     <>
       <div className={styles.answerArea}>
+        <h3>Q2 : 各項目について詳しく知りたい</h3>
+        <br />
         <h3>A2 : ６つの項目について</h3>
         <li>
           LifeStyle（ライフスタイル）:
@@ -27,6 +29,7 @@ export default function Answer2() {
           Fun（楽しみ）: 趣味やアクティビティに関連する要素を取り入れる。
           楽しい経験や新しい冒険に対する意欲を表現する。
         </li>
+        <br />
         これらの要素に対して、イメージや言葉、具体的な目標を組み合わせてビジョンボードを作成してみてください。
         <br />
         自分の理想や希望をクリエイティブに表現することができるでしょう。
