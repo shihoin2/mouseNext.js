@@ -14,7 +14,6 @@ export default function Page() {
   const board_id = query.get('board_id')
   const DataRef = useRef()
   const [data, setData] = useState()
-  const tmp = query.get('tmp')
 
   useEffect(() => {
     const getBoard = async () => {
@@ -40,23 +39,10 @@ export default function Page() {
     getBoard()
   }, [])
 
-
   useEffect(() => {
     console.log(DataRef.current)
     console.log(data)
   })
 
-  return (
-    <>
-    <Edit tutorial={false} step={false} data={data} />
-
-        <BoardProvider tmp={tmp} board_id={board_id} data={data}>
-      <Header link={'/'} text={'Preview'} />
-      <ToolBar />
-      <main className="create">
-        <HtmlToImage/>
-      </main>
-    </BoardProvider>
-    </>
-);
+  return <Edit tutorial={false} step={false} data={data} />
 }
