@@ -22,7 +22,6 @@ export default function Page({ boart_id }) {
 
   const toggleOpen = questionNum => {
     setIsOpen(prev => {
-      // console.log(prev[questionNum])
       return {
         ...{
           q1: false,
@@ -30,7 +29,7 @@ export default function Page({ boart_id }) {
           q3: false,
           q4: false,
         },
-        [questionNum]: !prev[questionNum],
+        [questionNum]: true,
       }
     })
   }
@@ -71,7 +70,7 @@ export default function Page({ boart_id }) {
                   onClick={() => {
                     toggleOpen('q4')
                   }}>
-                  <h3>Q4 : 画像のアップロード方法を教えてください</h3>
+                  <h3>Q4 : 画像のアップロード方法を教えて！</h3>
                 </button>
               </li>
             </ul>

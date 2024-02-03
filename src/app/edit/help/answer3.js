@@ -5,10 +5,11 @@ export default function Answer3() {
     <>
       <div className={styles.answerArea}>
         <h3>A3 : 目標の記入・保存方法</h3>
-        回答欄
+        黄色のボックスが目標の記入欄です。
         <br />
         回答欄
-        <br /> 回答欄
+        <br />
+        テキストは自動で保存されます。
         <br />
       </div>
     </>

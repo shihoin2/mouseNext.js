@@ -4,7 +4,7 @@ export default function Answer4() {
   return (
     <>
       <div className={styles.answerArea}>
-        <h3>A4 : 目標の記入・保存方法</h3>
+        <h3>A4 : 画像のアップロード方法を教えて！</h3>
         回答欄
         <br />
         回答欄
