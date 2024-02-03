@@ -8,7 +8,7 @@ import Template from '@/components/create/Template';
 import useHtmlToImage from '@/hooks/useHtmlToImage';
 
 
-export default function HtmlToImage({children}) {
+export default function HtmlToImage({}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const {captureImage} = useHtmlToImage();
@@ -30,8 +30,8 @@ export default function HtmlToImage({children}) {
   return (
     <>
       <div id='capture'>
-        {/* <Template/> */}
-        {children}
+        <Template/>
+        {/* {children} */}
       </div>
     </>
   );
