@@ -8,13 +8,15 @@
   position: absolute;
   z-index: 999;
 }
+
+/* 要調整 */
 .massageBox_step1 {
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 21%;
-  left: 34%;
-  transform: rotate(168.665deg);
+  top: 15%;
+  left: 40%;
+  transform: rotate(190deg);
   position: absolute;
   z-index: 999;
 }
@@ -46,13 +48,15 @@
   z-index: 999;
 }
 
+/* 要調整 */
 .massageBox_step2_1 {
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 10%;
-  left: 17%;
-  transform: rotate(350.665deg);
+  top: 2%;
+  left: 33%;
+  transform: rotate(370deg);
+  z-index: 999;
 }
 
 .bubble_step2_1 {
@@ -83,13 +87,14 @@
   font-family: var(--user-text-jp-hand);
 }
 
+/* 要調整 */
 .massageBox_step2_2 {
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 70%;
-  left: 56%;
-  transform: rotate(559.665deg);
+  top: 45%;
+  left: 43%;
+  transform: rotate(180deg);
 }
 .bubble_step2_2 {
   width: 257.311px;
@@ -100,6 +105,134 @@
   transform: rotate(354.665deg);
 }
 .message_step2_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(539.665deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 18%;
+  left: 43%;
+  transform: rotate(370deg);
+  z-index: 999;
+}
+
+.bubble_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+
+.message_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(348.665deg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 72%;
+  left: 53%;
+  transform: rotate(180deg);
+}
+.bubble_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+.message_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(539.665deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 18%;
+  left: 35%;
+  transform: rotate(370deg);
+  z-index: 999;
+}
+
+.bubble_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+
+.message_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(348.665deg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step4_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 70%;
+  left: 38%;
+  transform: rotate(180deg);
+}
+.bubble_step4_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+.message_step4_2 {
   width: 257.311px;
   height: 176.585px;
   position: absolute;
