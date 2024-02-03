@@ -1,85 +1,128 @@
 'use client'
-import { useEffect } from 'react';
+// import { useEffect, useState } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
-import Template from './Template';
+// import Template from './Template';
+// import html2canvas from 'html2canvas';
+// import axios from '@/lib/axios';
+
+
+// export default function HtmlToImage() {
+//   const [capturedImage, setCapturedImage] = useState(null);
+//   const [thumbnail, setThumbnail] = useState(null); // サムネイル用のステートを追加
+//   const searchParams = useSearchParams();
+//   const board_id = searchParams.get('board_id');
+
+//   // 画像をキャプチャしてサムネイルを作成する関数
+//   const captureAndCreateThumbnail = async () => {
+//     try {
+//       const captureElement = document.getElementById('capture');
+//       const canvas = await html2canvas(captureElement);
+//       const captureDataUrl = canvas.toDataURL("image/png");
+
+//       // サムネイルを作成
+//       setThumbnail(captureDataUrl);
+
+//       // 画像を保存するAPIエンドポイントにキャプチャされた画像を送信
+//       const response = await axios.patch(`http://127.0.0.1:8000/api/vision_boards/capture/${board_id}`, { image: captureDataUrl })
+
+//       // 保存された画像のURLを状態として設定
+//       setCapturedImage(captureDataUrl);
+//     } catch (error) {
+//       console.error('Failed to capture image:', error);
+//     }
+//   };
+
+//   // サムネイルを作成
+//   useEffect(() => {
+//     if (capturedImage === null) {
+//       captureAndCreateThumbnail();
+//     }
+//   }, []);
+
+//   // ボタンをクリックしたときにサムネイルを更新
+//   const handleButtonClick = () => {
+//     captureAndCreateThumbnail();
+//   };
+
+//   return (
+//     <div id='capture'>
+//       <Template />
+//       {/* サムネイルを表示 */}
+//     </div>
+//   );
+// }
+
+import { useEffect, useState } from 'react';
 import html2canvas from 'html2canvas';
 import axios from '@/lib/axios';
+import Template from '@/components/create/Template';
 
 export default function HtmlToImage() {
-  const pathname = usePathname();
+  const [capturedImage, setCapturedImage] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const [preventNavigation, setPreventNavigation] = useState(false);
   const searchParams = useSearchParams();
   const board_id = searchParams.get('board_id');
 
-  async function requestCapture() {
-    try {
-        const response = await axios.post('/api/capture', { captureElement: 'capture' });
-        const imageData = response.data.imageData;
-        console.log(imageData);
-        // 取得した画像データを適切に処理する（表示、保存など）
-    } catch (error) {
-        console.error('Failed to capture image:', error);
-    }
-}
-
-useEffect(() => {
-
-  requestCapture();
-}, []);
-
-  const captureImage = async () => {
-    try {
-      const captureElement = document.getElementById('capture');
-      console.log(captureElement);//Htmlが入っている
-      const canvas = await html2canvas(captureElement);
-      console.log(canvas);
-      const captureDataUrl = canvas.toDataURL("image/png");
-      console.log(captureDataUrl);
-
-      const response = await axios.patch(`/api/vision_boards/capture/${board_id}`, { image: captureDataUrl });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Failed to capture image:', error);
-    }
-  };
-
   useEffect(() => {
-    const handleBeforeUnload = async () => {
-      await captureImage();
+    // コンポーネントがマウントされたことを示すフラグを設定
+    setIsMounted(true);
+
+    const captureImage = async () => {
+      try {
+        const captureElement = document.getElementById('capture');
+        const canvas = await html2canvas(captureElement);
+        const captureDataUrl = canvas.toDataURL("image/png");
+
+        // 画像を保存するAPIエンドポイントにキャプチャされた画像を送信
+        const response = await axios.patch(`http://127.0.0.1:8000/api/vision_boards/capture/${board_id}`, { image: captureDataUrl });
+        setCapturedImage(captureDataUrl);
+
+        // 画像がキャプチャされた後、画面遷移を許可
+        setPreventNavigation(false);
+      } catch (error) {
+        console.error('Failed to capture image:', error);
+      }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    // ページ遷移時に画像をキャプチャ
+    if (!preventNavigation) {
+      captureImage();
+
+      // beforeunloadイベントリスナーを設定して、ページがアンロードされる前に画像を再度キャプチャ
+      window.addEventListener("beforeunload", captureImage);
+    }
 
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      // コンポーネントがアンマウントされる際にイベントリスナーをクリーンアップ
+      window.removeEventListener("beforeunload", captureImage);
+    };
+  }, [preventNavigation]);
+
+  // マウントタイミングを確認
+  useEffect(() => {
+    console.log('Component is mounted');
+    return () => {
+      console.log('Component is unmounted');
     };
   }, []);
 
-  useEffect(() => {
-    const captureAndUpdateImage = async () => {
-      await captureImage();
-    };
-    const url = `${pathname}?${searchParams}`;
-    captureImage();
-    window.addEventListener("beforeunload", captureAndUpdateImage);
-
-    return () => {
-      window.removeEventListener("beforeunload", captureAndUpdateImage);
-    };
-  }, [pathname, searchParams]);
-
-  // useEffect(() => {
-  //   const url = `${pathname}?${searchParams}`;
-  //   captureImage();
-  //   window.addEventListener("beforeunload", captureImage);
-
-  //   return () => {
-  //     window.removeEventListener("beforeunload", captureImage);
-  //   };
-  // }, [pathname, searchParams]);
+  // 画像がキャプチャされるまで、画面遷移をキャンセルし、キャプチャをトリガー
+  const handleLinkClick = async (event) => {
+    if (!capturedImage) {
+      event.preventDefault();
+      setPreventNavigation(true);
+      await captureImage(); // ページ遷移をキャプチャ
+    }
+  };
 
   return (
     <div id='capture'>
       <Template />
+      {/* {isMounted && capturedImage && (
+        <img src={capturedImage} alt="Captured Image" />
+      )}
+      <a href="/next-page" onClick={handleLinkClick}>Next Page</a> */}
     </div>
   );
 }
