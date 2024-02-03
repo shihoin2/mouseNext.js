@@ -1,6 +1,7 @@
 .text_box {
-  width: 200px;
-  height: 150px;
+  position: absolute;
+  width: 180px;
+  height: 120px;
   margin: 10px;
   background-color: #fffad2;
   border: none;
@@ -11,7 +12,61 @@
   line-height: 1.5;
   outline: none;
 }
+
 .text_box:invalid {
   background: #ffd3d3;
   border: 2px solid #ff0000;
+}
+
+.life_style {
+  top: 0px;
+  left: 50px;
+  padding: 42px, 0px, 10.62px, 0px;
+  gap: 10px;
+  opacity: 0.91px;
+}
+
+.work {
+
+  top: 18px;
+  left: 650px;
+  padding: 42px, 0px, 10.62px, 0px;
+  gap: 10px;
+  transform: rotate(-3.99deg) ;
+
+}
+
+.name_year {
+  top: 150px;
+  left: 450px;
+
+}
+
+.will {
+
+  top: 195px;
+  left: 840px;
+  padding: 42px, 0px, 10.62px, 0px;
+  gap: 10px;
+  transform: rotate(4.46deg);
+
+}
+
+.fun {
+
+  top: 330px;
+  left: 145px;
+  padding: 42px, 0px, 10.62px, 0px;
+  gap: 10px;
+  transform: rotate(-4.47deg);
+}
+
+.health {
+
+  top: 290px;
+  left: 510px;
+  padding: 42px, 0px, 10.62px, 0px;
+  gap: 10px;
+  transform: rotate(4.93deg);
+
 }
