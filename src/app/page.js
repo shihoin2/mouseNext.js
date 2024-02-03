@@ -16,7 +16,6 @@ const Home = () => {
         <Header link={'/myboard'} text={'My Vision Board'} />
         <main>
             <FeedTemplate />
-            <HttpToImage/>
         </main>
         </>
     );
