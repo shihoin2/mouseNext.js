@@ -14,6 +14,7 @@ export default function Page() {
   const board_id = query.get('board_id')
   const DataRef = useRef()
   const [data, setData] = useState()
+  const tmp = query.get('tmp')
 
   useEffect(() => {
     const getBoard = async () => {
@@ -52,7 +53,6 @@ export default function Page() {
       <Header link={'/'} text={'Preview'} />
       <ToolBar />
       <main className="create">
-        {/* <Template /> */}
         <HtmlToImage/>
       </main>
     </BoardProvider>

@@ -35,12 +35,10 @@ export default function TextBox({ storeHtml, thisArea, textCategory }) {
 
   return (
     <textarea
-<<<<<<< HEAD
+
       // className={styles.text_box}
       className={`${styles['text_box']} ${styles[textCategory]}`}
-=======
-      className={`${styles.text_box}`}
->>>>>>> master
+
       maxlength="104"
       // value={
       //   (thisArea === 'lifeStyle' ? textBoxes.lifeStyle : null) ||
