@@ -14,8 +14,10 @@ export default function useHtmlToImage() {
       //   width : 1280,
       //   height : 720,
       // });
+
       const captureDataUrl = canvas.toDataURL('image/png')
-      // console.log(captureDataUrl);
+ 
+
 
       const response = await axios.patch(
         `/api/vision_boards/capture/${board_id}`,

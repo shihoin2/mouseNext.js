@@ -15,6 +15,8 @@ import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
 
+import HtmlToImage from './HtmlToImage';
+
 export default function Template() {
   const htmlRef = useRef()
   const [board, setBoard, textBoxes] = useContext(BoardState)
@@ -85,6 +87,8 @@ export default function Template() {
     <section id="modal_target" className={styles.template} ref={htmlRef}>
       <div className={styles.board}>
         <div className={styles.row}>
+
+
           <div className={styles.categoryTitle}>
             <AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} />
           </div>
@@ -128,7 +132,9 @@ export default function Template() {
               imageCategory={'work2'}
             />
           </div>
+
         </div>
+
 
         <div className={styles.row}>
           <div className={styles.categoryTitle}>
@@ -213,7 +219,9 @@ export default function Template() {
             />
           </div>
         </div>
+
       </div>
     </section>
-  )
+  );
+
 }

@@ -11,7 +11,7 @@ import Tutorial4 from '@/components/tutorialModal/Tutorial4'
 import modalStyles from '@/components/tutorialModal/Modal.module.css'
 
 
-export default function Edit({ tutorial, step, data }) {
+export default function Edit({ tutorial, step, data,handleLinkClick }) {
   const query = useSearchParams()
   const board_id = query.get('board_id')
   const tmp = query.get('tmp')
@@ -19,7 +19,10 @@ export default function Edit({ tutorial, step, data }) {
   return (
     <>
       <BoardProvider tmp={tmp} board_id={board_id} data={data}>
-        <Header link={'/myboard'} text={'Preview'} />
+
+
+        <Header link={'/myboard'} text={'Preview'} handleLinkClick={handleLinkClick} />
+
         <ToolBar />
         <main className={modalStyles.hidden}>
           <HtmlToImage />
