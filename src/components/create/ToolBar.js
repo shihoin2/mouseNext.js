@@ -1,9 +1,16 @@
+'use client'
+
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { GoQuestion } from 'react-icons/go'
 import { IconContext } from 'react-icons'
 import styles from './ToolBar.module.css'
 
-export default function ToolBar({board_id}) {
+
+export default function ToolBar() {
+  const query = useSearchParams()
+  const board_id = query.get('board_id')
+
   return (
     <div className={styles.tool_bar}>
       <div className={styles.left}>
