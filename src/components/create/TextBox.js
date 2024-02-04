@@ -35,10 +35,8 @@ export default function TextBox({ storeHtml, thisArea, textCategory }) {
 
   return (
     <textarea
-
       // className={styles.text_box}
       className={`${styles['text_box']} ${styles[textCategory]}`}
-
       maxlength="104"
       value={textBoxes[thisArea]}
       onChange={handleTextChange}></textarea>
