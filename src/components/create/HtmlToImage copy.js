@@ -1,5 +1,4 @@
 'use client'
-
 // import { useEffect, useState } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 // import Template from './Template';
@@ -126,5 +125,4 @@ export default function HtmlToImage() {
       <a href="/next-page" onClick={handleLinkClick}>Next Page</a> */}
     </div>
   );
-
 }

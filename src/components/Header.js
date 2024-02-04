@@ -10,7 +10,9 @@ export default function Page({ link, text,handleLinkClick }) {
         </Link>
       </h1>
       <div className={'link_btn'}>
+
         <Link href={link} onClick={handleLinkClick}>{text}</Link>
+
       </div>
     </header>
   )
