@@ -31,7 +31,7 @@ export default function FeedMyBoard() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('/api/download', {
+      const response = await axios.get(`/api/download`, {
         responseType: 'arraybuffer',
       })
       if (response.status === 200) {
@@ -51,7 +51,7 @@ export default function FeedMyBoard() {
     }
   }
 
-  const handleDownload = () => {
+  const handleDownload = (url) => {
     // クリック時にダウンロードリンクを生成
     const link = document.createElement('a')
     link.href = imageData
@@ -61,64 +61,67 @@ export default function FeedMyBoard() {
     document.body.removeChild(link)
   }
 
-  //   return (
-  //     <div>
-  //       <button onClick={fetchData}>Fetch Image</button>
-  //       {imageData && (
-  //         <div>
-  //           <img src={imageData} alt="My Vision" />
-  //           <button onClick={handleDownload}>Download Image</button>
-  //         </div>
-  //       )}
-  //     </div>
-  //   );
-  // };
+    // return (
+    //   <div>
+    //     <div onClick={fetchData()}></div>
+    //     {imageData && (
+    //       <div>
+    //         <button onClick={handleDownload}>Download Image</button>
+    //       </div>
+    //     )}
+    //   </div>
+    // );
 
-  return (
-    <div className={styles.feedMyBoardContainer}>
-      {/* <button onClick={download}>ダウンロードするよ</button> */}
 
-      <div>
-        <button onClick={fetchData}>Fetch Image</button>
-        {imageData && (
-          <div>
-            <img src={imageData} alt="My Vision" />
-            <button onClick={handleDownload}>Download Image</button>
-          </div>
-        )}
-      </div>
+  //  return (
+  //    <div className={styles.feedMyBoardContainer}>
+  //    <button onClick={download}>ダウンロードするよ</button>
 
-      {/* {data &&
-        data.map((data, index) => (
+  //    <div>
+  //      <button onClick={fetchData}>Fetch Image</button>
+  //      {imageData && (
+  //        <div>
+  //          <img src={imageData} alt="My Vision" />
+  //          <button onClick={handleDownload}>Download Image</button>
+  //        </div>
+  //      )}
+  //    </div>
+  //    </div>
+  //  )
+
+      return (
+      <div className={styles.feedMyBoardContainer}>
+        {data && data.map((data, index) => (
           <div key={index} className={styles.myBoardList}>
-            {data.map(item => (
+            {data.map((item) => (
               <div key={item.id} className={styles.myBoardItem}>
-                <Link
-                  href={`/edit?board_id=${item.id}`}
-                  className={styles.templateUrl}>
+                {/* <Link href={``} className={styles.templateUrl}> */}
+                <div onClick={fetchData()} className={styles.templateUrl}>
                   <Image
-                    src={item.board_thumbnail}
-                    priority={true}
-                    width={500}
-                    height={500}
-                    alt={`テンプレート${item.id}`}
-                    className={styles.myBoardImage}
+                      src={item.board_thumbnail}
+                      priority={true}
+                      width={500}
+                      height={500}
+                      alt={`テンプレート${item.id}`}
+                      className={styles.myBoardImage}
                   />
-                  <div className={styles.caption}>Edit</div>
-                </Link>
+                  {/* <div className={styles.caption}>Edit</div> */}
+                  {imageData && (
+                  <div className={styles.downloadButtonWrapper}>
+                    <button onClick={handleDownload} className={styles.downloadButton}>Download</button>
+                  </div>
+                )}
+                </div>
               </div>
             ))}
           </div>
-        ))} */}
-      {size < lastPage && (
-        <div className={styles.loadButtonWrapper}>
-          <button
-            onClick={() => setSize(size + 1)}
-            className={styles.loadButton}>
-            Load more
-          </button>
-        </div>
-      )}
-    </div>
-  )
+        ))}
+        {
+          size < lastPage &&
+          <div className={styles.loadButtonWrapper}>
+            <button onClick={() => setSize(size+1)} className={styles.loadButton}>Load more</button>
+          </div>
+        }
+      </div>
+    )
 }

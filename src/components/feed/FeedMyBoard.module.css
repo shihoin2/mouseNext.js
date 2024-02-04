@@ -73,3 +73,15 @@
 .loadButton:hover {
     background-color: #a7cbd1;
 }
+.downloadButtonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+.downloadButton {
+  background-color: #bff0f6;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  border-radius: 5%;
+}
