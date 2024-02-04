@@ -20,6 +20,7 @@ export default function Edit({ tutorial, step, data,handleLinkClick }) {
     <>
       <BoardProvider tmp={tmp} board_id={board_id} data={data}>
 
+
         <Header link={'/myboard'} text={'Preview'} handleLinkClick={handleLinkClick} />
 
         <ToolBar  />

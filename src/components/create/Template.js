@@ -14,6 +14,7 @@ import AddImage from '@/components/create/AddImage'
 import AreaTitle from '@/components/create/AreaTitle'
 import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
+
 import HtmlToImage from './HtmlToImage';
 
 export default function Template() {
@@ -87,6 +88,7 @@ export default function Template() {
       <div className={styles.board}>
         <div className={styles.row}>
 
+
           <div className={styles.categoryTitle}>
             <AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} />
           </div>
@@ -132,6 +134,7 @@ export default function Template() {
           </div>
 
         </div>
+
 
         <div className={styles.row}>
           <div className={styles.categoryTitle}>

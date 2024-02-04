@@ -1,5 +1,4 @@
 'use client'
-
 // import { useEffect, useState } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 // import Template from './Template';
@@ -54,11 +53,9 @@ import { useSearchParams, usePathname } from 'next/navigation';
 // }
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas';
 import axios from '@/lib/axios';
 import Template from '@/components/create/Template';
-// import puppeteer from 'puppeteer'
 
 export default function HtmlToImage() {
   const [capturedImage, setCapturedImage] = useState(null);
@@ -67,47 +64,42 @@ export default function HtmlToImage() {
   const searchParams = useSearchParams();
   const board_id = searchParams.get('board_id');
 
-
-
   useEffect(() => {
+    // コンポーネントがマウントされたことを示すフラグを設定
     setIsMounted(true);
 
     const captureImage = async () => {
       try {
         const captureElement = document.getElementById('capture');
-        console.log(captureElement);
+        const canvas = await html2canvas(captureElement);
+        const captureDataUrl = canvas.toDataURL("image/png");
 
-        // dom-to-imageを使用してHTML要素をキャプチャし、データURLを取得
-        domtoimage.toPng(captureElement)
-          .then(function (dataUrl) {
-            // 画像を保存するAPIエンドポイントにキャプチャされた画像を送信
-            axios.patch(`http://127.0.0.1:8000/api/vision_boards/capture/${board_id}`, { image: dataUrl })
-              .then(response => {
-                setCapturedImage(dataUrl);
-                setPreventNavigation(false);
-              })
-              .catch(error => {
-                console.error('Failed to save image:', error);
-              });
-          })
-          .catch(function (error) {
-            console.error('Failed to capture image:', error);
-          });
+        // 画像を保存するAPIエンドポイントにキャプチャされた画像を送信
+        const response = await axios.patch(`http://127.0.0.1:8000/api/vision_boards/capture/${board_id}`, { image: captureDataUrl });
+        setCapturedImage(captureDataUrl);
+
+        // 画像がキャプチャされた後、画面遷移を許可
+        setPreventNavigation(false);
       } catch (error) {
         console.error('Failed to capture image:', error);
       }
     };
 
+    // ページ遷移時に画像をキャプチャ
     if (!preventNavigation) {
-      // レンダリングが完了するまで待機する
-      const timer = setTimeout(() => {
-        captureImage();
-        window.addEventListener("beforeunload", captureImage);
-      }, 1000); // 1秒待機してからキャプチャを実行
-      return () => clearTimeout(timer); // タイマーをクリーンアップ
+      captureImage();
+
+      // beforeunloadイベントリスナーを設定して、ページがアンロードされる前に画像を再度キャプチャ
+      window.addEventListener("beforeunload", captureImage);
     }
+
+    return () => {
+      // コンポーネントがアンマウントされる際にイベントリスナーをクリーンアップ
+      window.removeEventListener("beforeunload", captureImage);
+    };
   }, [preventNavigation]);
 
+  // マウントタイミングを確認
   useEffect(() => {
     console.log('Component is mounted');
     return () => {
@@ -115,11 +107,12 @@ export default function HtmlToImage() {
     };
   }, []);
 
+  // 画像がキャプチャされるまで、画面遷移をキャンセルし、キャプチャをトリガー
   const handleLinkClick = async (event) => {
     if (!capturedImage) {
       event.preventDefault();
       setPreventNavigation(true);
-      await captureImage();
+      await captureImage(); // ページ遷移をキャプチャ
     }
   };
 
@@ -132,5 +125,4 @@ export default function HtmlToImage() {
       <a href="/next-page" onClick={handleLinkClick}>Next Page</a> */}
     </div>
   );
-
 }
