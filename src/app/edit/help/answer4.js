@@ -6,7 +6,7 @@ export default function Answer4() {
       <div className={styles.answerArea}>
         <h3>Q4 : 画像のアップロード方法を教えて！</h3>
         <br />
-        <h3>A4 : 画像のアップロード方法を教えて！</h3>
+        <h3>A4 : 画像のアップロード方法</h3>
 
         灰色のボックスが目標の記入欄です。
         <br />

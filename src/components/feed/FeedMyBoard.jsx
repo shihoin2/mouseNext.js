@@ -32,7 +32,8 @@ export default function FeedMyBoard() {
             <div key={item.id} className={styles.myBoardItem}>
               <Link href={`/edit?board_id=${item.id}`} className={styles.templateUrl}>
                 <Image
-                    src={item.board_thumbnail}
+                    // src={item.board_thumbnail}
+                    src={`/thumbnails/{item.board_thumbnail}`}
                     priority={true}
                     width={500}
                     height={500}
@@ -54,5 +55,3 @@ export default function FeedMyBoard() {
     </div>
   )
 }
-
-

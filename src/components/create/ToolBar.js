@@ -3,7 +3,7 @@ import { GoQuestion } from 'react-icons/go'
 import { IconContext } from 'react-icons'
 import styles from './ToolBar.module.css'
 
-export default function ToolBar() {
+export default function ToolBar({board_id}) {
   return (
     <div className={styles.tool_bar}>
       <div className={styles.left}>
@@ -14,7 +14,7 @@ export default function ToolBar() {
       </div>
       <div className={styles.right}>
         <div className={styles.help}>
-          <Link href={'/edit/help'}>
+          <Link href={`/edit/help?board_id=${board_id}`}>
             <IconContext.Provider value={{ color: '#bff0f6', size: '30px' }}>
               <GoQuestion />
             </IconContext.Provider>

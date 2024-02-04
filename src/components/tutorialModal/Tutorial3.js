@@ -23,11 +23,15 @@ export default function Tutorial3({ board_id, step }) {
               各項目に対する目標や想いを
               <br />
               記入しましょう！
+              <br />
+              入力した内容は
+              <br />
+              自動で保存されます
             </p>
           </div>
         </div>
         <div className={`${styles.massageBox} ${styles.massageBox_step3_2}`}>
-          <Image
+          {/* <Image
             src="/bubble.png"
             width={200}
             height={100}
@@ -41,7 +45,7 @@ export default function Tutorial3({ board_id, step }) {
               <br />
               自動で保存されます
             </p>
-          </div>
+          </div> */}
         </div>
       </section>
     </Modal>

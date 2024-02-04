@@ -14,7 +14,7 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 40%;
   transform: rotate(190deg);
   position: absolute;
@@ -92,7 +92,7 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 45%;
+  top: 70%;
   left: 43%;
   transform: rotate(180deg);
 }
@@ -129,8 +129,10 @@
 }
 
 .bubble_step3_1 {
-  width: 257.311px;
-  height: 176.585px;
+  /* width: 257.311px; */
+  width: 260px;
+  /* height: 176.585px; */
+  height: 183px;
   position: absolute;
   top: 33%;
   left: 13%;
@@ -186,8 +188,8 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 18%;
-  left: 35%;
+  top: -5%;
+  left: 20%;
   transform: rotate(370deg);
   z-index: 999;
 }
@@ -220,8 +222,8 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 70%;
-  left: 38%;
+  top: 80%;
+  left: 27%;
   transform: rotate(180deg);
 }
 .bubble_step4_2 {

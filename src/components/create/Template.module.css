@@ -1,5 +1,6 @@
 .template {
   width: 100%;
+  background-color: white;
 }
 .board {
   position: relative;

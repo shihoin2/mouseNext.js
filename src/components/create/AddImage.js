@@ -16,6 +16,7 @@ export default function AddImage({ imageStyle, imageCategory, imagePlace }) {
   const board_id = searchParams.get('board_id')
   // console.log(board_id);
 
+
   const handleFileChange = async e => {
     const file = e.target.files[0]
     if (file) {

@@ -22,7 +22,7 @@ export default function Edit({ tutorial, step, data,handleLinkClick }) {
 
         <Header link={'/myboard'} text={'Preview'} handleLinkClick={handleLinkClick} />
 
-        <ToolBar />
+        <ToolBar  />
         <main className={modalStyles.hidden}>
           <HtmlToImage />
           {tutorial && step === 1 && <Tutorial1 step={1} board_id={board_id} />}
