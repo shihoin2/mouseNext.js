@@ -1,24 +1,246 @@
 .container {
-  height: 90%;
+  height: 70%;
   background-color: transparent;
 }
-
-/* .bubble {
-} */
-
-.bubble_name {
+.massageBox {
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: rotate(168.665deg);
-  flex-shrink: 0;
+  z-index: 999;
 }
 
-.bubble2 {
-  width: 273.344px;
-  height: 188.606px;
-  transform: rotate(32.528deg);
+/* 要調整 */
+.massageBox_step1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  transform: rotate(190deg);
+  position: absolute;
+  z-index: 999;
+}
+
+.bubble_step1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  transform: rotate(168.665deg);
+  position: absolute;
+  z-index: 999;
+}
+
+.message_step1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 35%;
+  transform: rotate(162.665deg);
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  z-index: 999;
+}
+
+/* 要調整 */
+.massageBox_step2_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 2%;
+  left: 33%;
+  transform: rotate(370deg);
+  z-index: 999;
+}
+
+.bubble_step2_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+
+.message_step2_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(348.665deg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.message {
+  z-index: 999;
+  font-family: var(--user-text-jp-hand);
+}
+
+/* 要調整 */
+.massageBox_step2_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 45%;
+  left: 43%;
+  transform: rotate(180deg);
+}
+.bubble_step2_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+.message_step2_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(539.665deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 18%;
+  left: 43%;
+  transform: rotate(370deg);
+  z-index: 999;
+}
+
+.bubble_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+
+.message_step3_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(348.665deg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 72%;
+  left: 53%;
+  transform: rotate(180deg);
+}
+.bubble_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+.message_step3_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(539.665deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 18%;
+  left: 35%;
+  transform: rotate(370deg);
+  z-index: 999;
+}
+
+.bubble_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+
+.message_step4_1 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(348.665deg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 要調整 */
+.massageBox_step4_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 70%;
+  left: 38%;
+  transform: rotate(180deg);
+}
+.bubble_step4_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 33%;
+  left: 13%;
+  transform: rotate(354.665deg);
+}
+.message_step4_2 {
+  width: 257.311px;
+  height: 176.585px;
+  position: absolute;
+  top: 27%;
+  left: 14%;
+  transform: rotate(539.665deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

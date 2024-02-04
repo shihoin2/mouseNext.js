@@ -12,9 +12,8 @@
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  background-color: #D9D9D938;
+  background-color: #d9d9d938;
 }
-
 
 .imageContent {
   position: absolute;
@@ -43,80 +42,88 @@
 
   width: 180px;
   height: 130px;
-  background-color: #D9D9D938;
+  background-color: #d9d9d938;
 }
 
 .vertical {
 
   width: 130px;
   height: 180px;
-  background-color: #D9D9D938;
+  background-color: #d9d9d938;
 }
 
-.life_style1, .life-image1 {
-  top: 0px;
+
+.life_style1,
+.life-image1 {
+  top: 10px;
   left: 280px;
   gap: 10px;
-  transform:rotate(3.72deg);
+  transform: rotate(3.72deg);
 }
 
-.life_style2, .life-image2 {
-top: 150px;
-left: 0px;
-gap: 10px;
-transform:rotate(-5deg);
+.life_style2,
+.life-image2 {
+  top: 150px;
+  left: 0px;
+  gap: 10px;
+  transform: rotate(-5deg);
 }
 
-.work1, .work-image1 {
-top: 10px;
-left: 450px;
-gap: 10px;
-transform:rotate(3deg);
+.work1,
+.work-image1 {
+  top: 10px;
+  left: 450px;
+  gap: 10px;
+  transform: rotate(3deg);
 }
 
-.work2, .work-image2 {
-top: 20px;
-left: 900px;
-gap: 10px;
-transform:rotate(8.34deg);
-
+.work2,
+.work-image2 {
+  top: 20px;
+  left: 900px;
+  gap: 10px;
+  transform: rotate(8.34deg);
 }
 
-.fun1, .fun-image1 {
+.fun1,
+.fun-image1 {
   top: 195px;
-left: 200px;
-gap: 10px;
-transform:rotate(9.66deg);
+  left: 200px;
+  gap: 10px;
+  transform: rotate(9.66deg);
 }
 
-.fun2, .fun-image2 {
+.fun2,
+.fun-image2 {
   top: 290px;
   left: 0px;
-  transform:rotate(-9.66deg);
-
+  transform: rotate(-9.66deg);
 }
 
-.will1, .will-image1 {
+.will1,
+.will-image1 {
   top: 155px;
   left: 710px;
-  transform:rotate(-2deg);
+  transform: rotate(-2deg);
 }
 
-.will2, .will-image2 {
+.will2,
+.will-image2 {
   top: 340px;
   left: 950px;
-  transform:rotate(-6deg);
+  transform: rotate(-6deg);
 }
 
-.health1, .health-image1 {
+.health1,
+.health-image1 {
   top: 290px;
   left: 380px;
-  transform:rotate(-2deg);
+  transform: rotate(-2deg);
 }
 
-.health2, .health-image2 {
+.health2,
+.health-image2 {
   top: 350px;
   left: 710px;
   transform: rotate(3.9deg);
-
 }

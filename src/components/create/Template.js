@@ -16,22 +16,13 @@ import { BoardState } from '@/context/BoardContext'
 import styles from './Template.module.css'
 import HtmlToImage from './HtmlToImage';
 
-// import { encycle, decycle } from 'json-cyclic'
-// import parse from 'html-react-parser'
-
-// export const Timer = createContext()
-
 export default function Template() {
   const htmlRef = useRef()
-  // console.log(htmlRef)
   const [board, setBoard, textBoxes] = useContext(BoardState)
 
   // 再レンダリングされても消えないように useRef でタイマーを保持
   const timer = useRef(null)
 
-  // useEffect(()=>{
-
-  // })
   const storeHtml = () => {
     console.log(board)
     // timer にまだタイマーがセットされていたら(5秒未経過)、そのタイマーは削除する
@@ -47,6 +38,7 @@ export default function Template() {
           edited_html: htmlRef.current.innerHTML,
           textBoxes: textBoxes,
         }
+        console.log(request)
 
         const response = await axios.put(
           `api/vision_boards/${board.board_id}`,
@@ -79,11 +71,6 @@ export default function Template() {
     storeHtml()
   }
 
-  // useEffect(() => {
-  //   console.log('Template:textBoxes更新！')
-  //   console.log(textBoxes)
-  // }, [textBoxes])
-
   // イベントリスナー
   useEffect(() => {
     // 画面遷移する前にイベントが発火する
@@ -95,44 +82,139 @@ export default function Template() {
     }
   }, [handleBeforeUnload])
 
-
   return (
     <section id="modal_target" className={styles.template} ref={htmlRef}>
       <div className={styles.board}>
         <div className={styles.row}>
-          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} /></div>
-          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Work'} titleStyle={'Work'} /></div>
-          <TextBox storeHtml={storeHtml} thisArea={'lifeStyle'} textCategory={'life_style'} />
-          <div className={styles.image}><AddImage imagePlace={'life-image1'} imageStyle={'vertical'} imageCategory={'life_style1'} /></div>
-          <div className={styles.image}><AddImage imagePlace={'work-image1'} imageStyle={'boarder'} imageCategory={'work1'} /></div>
-          <TextBox storeHtml={storeHtml} thisArea={'work'} textCategory={'work'} />
-          <div className={styles.image}><AddImage imagePlace={'work-image2'} imageStyle={'vertical'} imageCategory={'work2'} /></div>
+
+          <div className={styles.categoryTitle}>
+            <AreaTitle areaTitle={'Life Style'} titleStyle={'Life-Style'} />
+          </div>
+
+          <div className={styles.categoryTitle}>
+            <AreaTitle areaTitle={'Work'} titleStyle={'Work'} />
+          </div>
+
+          <TextBox
+            storeHtml={storeHtml}
+            thisArea={'lifeStyle'}
+            textCategory={'life_style'}
+          />
+
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'life-image1'}
+              imageStyle={'vertical'}
+              imageCategory={'life_style1'}
+            />
+          </div>
+
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'work-image1'}
+              imageStyle={'boarder'}
+              imageCategory={'work1'}
+            />
+          </div>
+
+          <TextBox
+            storeHtml={storeHtml}
+            thisArea={'work'}
+            textCategory={'work'}
+          />
+
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'work-image2'}
+              imageStyle={'vertical'}
+              imageCategory={'work2'}
+            />
+          </div>
+
         </div>
 
-
         <div className={styles.row}>
-
-          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Fun'} titleStyle={'Fun'} /></div>
-          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Will'} titleStyle={'Will'} /></div>
-          <div className={styles.image}><AddImage imagePlace={'life-image2'} imageStyle={'boarder'} imageCategory={'life_style2'} /></div>
-          <div className={styles.image}><AddImage imagePlace={'fun-image1'} imageStyle={'boarder'} imageCategory={'fun1'} /></div>
-          <div className={styles.image}><AddImage imagePlace={'fun-image2'} imageStyle={'vertical'} imageCategory={'fun2'} /></div>
+          <div className={styles.categoryTitle}>
+            <AreaTitle areaTitle={'Fun'} titleStyle={'Fun'} />
+          </div>
+          <div className={styles.categoryTitle}>
+            <AreaTitle areaTitle={'Will'} titleStyle={'Will'} />
+          </div>
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'life-image2'}
+              imageStyle={'boarder'}
+              imageCategory={'life_style2'}
+            />
+          </div>
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'fun-image1'}
+              imageStyle={'boarder'}
+              imageCategory={'fun1'}
+            />
+          </div>
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'fun-image2'}
+              imageStyle={'vertical'}
+              imageCategory={'fun2'}
+            />
+          </div>
           <TextBox
             yearNameBox={true}
             storeHtml={storeHtml}
             thisArea={'name_year'}
             textCategory={'name_year'}
           />
-          <div className={styles.image}><AddImage imagePlace={'will-image1'} imageStyle={'vertical'} imageCategory={'will1'} /></div>
-          <TextBox storeHtml={storeHtml} thisArea={'will'} textCategory={'will'} />
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'will-image1'}
+              imageStyle={'vertical'}
+              imageCategory={'will1'}
+            />
+          </div>
+          <TextBox
+            storeHtml={storeHtml}
+            thisArea={'will'}
+            textCategory={'will'}
+          />
         </div>
         <div className={styles.row}>
-          <div className={styles.categoryTitle}><AreaTitle areaTitle={'Health'} titleStyle={'Health'} /></div>
-          <TextBox storeHtml={storeHtml} thisArea={'fun'} textCategory={'fun'} />
-          <div className={styles.image}><AddImage imagePlace={'health-image1'} imageStyle={'vertical'} imageCategory={'health1'} /></div>
-          <TextBox storeHtml={storeHtml} thisArea={'health'} textCategory={'health'} />
-          <div className={styles.image}><AddImage imagePlace={'health-image2'} imageStyle={'boarder'} imageCategory={'health2'} /></div>
-          <div className={styles.image}><AddImage imagePlace={'will-image2'} imageStyle={'boarder'} imageCategory={'will2'} /></div>
+          <div className={styles.categoryTitle}>
+            <AreaTitle areaTitle={'Health'} titleStyle={'Health'} />
+          </div>
+          <TextBox
+            storeHtml={storeHtml}
+            thisArea={'fun'}
+            textCategory={'fun'}
+          />
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'health-image1'}
+              imageStyle={'vertical'}
+              imageCategory={'health1'}
+            />
+          </div>
+          <TextBox
+            storeHtml={storeHtml}
+            thisArea={'health'}
+            textCategory={'health'}
+          />
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'health-image2'}
+              imageStyle={'boarder'}
+              imageCategory={'health2'}
+            />
+          </div>
+          <div className={styles.image}>
+            <AddImage
+              imagePlace={'will-image2'}
+              imageStyle={'boarder'}
+              imageCategory={'will2'}
+            />
+          </div>
         </div>
 
       </div>
