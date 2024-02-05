@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import Template from '@/components/create/Template'
-import HtmlToImage from '@/components/create/HtmlToImage';
+// import HtmlToImage from '@/components/create/HtmlToImage';
 import AddImage from '@/components/create/AddImage';
 import FeedTemplate from '@/components/feed/FeedTemplate'
 

@@ -2,7 +2,7 @@
 import Header from '@/components/Header'
 import ToolBar from '@/components/create/ToolBar'
 import Template from '@/components/create/Template'
-import HtmlToImage from '@/components/create/HtmlToImage'
+// import HtmlToImage from '@/components/create/HtmlToImage'
 import { BoardProvider } from '@/context/BoardContext'
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'

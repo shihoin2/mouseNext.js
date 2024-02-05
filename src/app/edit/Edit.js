@@ -35,7 +35,7 @@ export default function Edit({ tutorial, step, data }) {
         <Header link={'/'} text={'Preview'} />
         <ToolBar />
         <main className={modalStyles.hidden}>
-          <HtmlToImage />
+          {/* <HtmlToImage /> */}
           {tutorial && step === 1 && <Tutorial1 step={1} board_id={board_id} />}
           {tutorial && step === 2 && <Tutorial2 step={2} board_id={board_id} />}
           {tutorial && step === 3 && <Tutorial3 step={3} board_id={board_id} />}
