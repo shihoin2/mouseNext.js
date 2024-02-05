@@ -4,21 +4,18 @@ import Template from '@/components/create/Template'
 import AddImage from '@/components/create/AddImage';
 import FeedTemplate from '@/components/feed/FeedTemplate'
 
-
-
 export const metadata = {
-    title: 'WEAVE',
+  title: 'WEAVE',
 }
 
 const Home = () => {
-    return (
-        <>
-        <Header link={'/myboard'} text={'My Vision Board'} />
-        <main>
-            <FeedTemplate />
-        </main>
-        </>
-    );
-
+  return (
+    <>
+      <Header link={'/myboard'} text={'My Vision Board'} />
+      <main>
+        <FeedTemplate />
+      </main>
+    </>
+  )
 }
-export default Home;
+export default Home

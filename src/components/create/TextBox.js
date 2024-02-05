@@ -35,19 +35,9 @@ export default function TextBox({ storeHtml, thisArea, textCategory }) {
 
   return (
     <textarea
-
       // className={styles.text_box}
       className={`${styles['text_box']} ${styles[textCategory]}`}
-
       maxlength="104"
-      // value={
-      //   (thisArea === 'lifeStyle' ? textBoxes.lifeStyle : null) ||
-      //   (thisArea === 'work' ? textBoxes.work : null) ||
-      //   (thisArea === 'name_year' ? textBoxes.name_year : null) ||
-      //   (thisArea === 'will' ? textBoxes.will : null) ||
-      //   (thisArea === 'fun' ? textBoxes.fun : null) ||
-      //   (thisArea === 'health' ? textBoxes.health : null)
-      // }
       value={textBoxes[thisArea]}
       onChange={handleTextChange}></textarea>
   )

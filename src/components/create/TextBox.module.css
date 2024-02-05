@@ -11,6 +11,7 @@
   text-decoration-color: rgba(var(--text-color-rgb), 0.3);
   line-height: 1.5;
   outline: none;
+  font-family: var(--user-text-jp-hand);
 }
 
 .text_box:invalid {
@@ -27,33 +28,27 @@
 }
 
 .work {
-
   top: 18px;
   left: 650px;
   padding: 42px, 0px, 10.62px, 0px;
   gap: 10px;
-  transform: rotate(-3.99deg) ;
-
+  transform: rotate(-3.99deg);
 }
 
 .name_year {
   top: 150px;
   left: 450px;
-
 }
 
 .will {
-
   top: 195px;
   left: 840px;
   padding: 42px, 0px, 10.62px, 0px;
   gap: 10px;
   transform: rotate(4.46deg);
-
 }
 
 .fun {
-
   top: 330px;
   left: 145px;
   padding: 42px, 0px, 10.62px, 0px;
@@ -62,11 +57,9 @@
 }
 
 .health {
-
   top: 290px;
   left: 510px;
   padding: 42px, 0px, 10.62px, 0px;
   gap: 10px;
   transform: rotate(4.93deg);
-
 }

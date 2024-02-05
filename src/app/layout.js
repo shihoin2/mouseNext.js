@@ -1,7 +1,7 @@
 import '@/app/global.css'
 import Footer from '@/components/Footer'
 export const metadata = {
-  title: 'Laravel',
+  title: 'WEAVE',
 }
 const RootLayout = ({ children }) => {
   return (
