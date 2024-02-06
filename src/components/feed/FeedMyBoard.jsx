@@ -10,8 +10,6 @@ import axios from '@/lib/axios'
 import { unstable_noStore as noStore } from 'next/cache'
 
 export default function FeedMyBoard() {
-  const [imageData, setImageData] = useState('')
-
   const [lastPage, setLastPage] = useState()
   const getKey = (pageIndex, previousPageData) => {
     if (previousPageData && !previousPageData.length) return null
@@ -29,65 +27,22 @@ export default function FeedMyBoard() {
   const { data, size, setSize } = useSWRInfinite(getKey, fetcher)
   if (!data) return 'loading...'
 
-  const fetchData = async () => {
+  const downloadImage = async (imagUrl) => {
     try {
-      const response = await axios.get(`/api/download`, {
-        responseType: 'arraybuffer',
-      })
-      if (response.status === 200) {
-        const base64Data = btoa(
-          new Uint8Array(response.data).reduce(
-            (data, byte) => data + String.fromCharCode(byte),
-            '',
-          ),
-        )
-        const imageDataUrl = `data:${response.headers['content-type']};base64,${base64Data}`
-        setImageData(imageDataUrl)
-      } else {
-        console.error('Failed to fetch image')
-      }
+      // base64に変換された画像が返ってくる(DownloadController参照)
+      const response = await axios.get(`/api/download?imageUrl=${imagUrl}`)
+      // 一時的にdownload属性aタグを作成して強制クリック->ダウンロード
+      const link = document.createElement('a')
+      // pngの部分は画像の拡張子に合わせて変更
+      link.href = `data: png;base64 ,${response.data}`
+      link.download = 'myVision.png'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     } catch (error) {
       console.error('Error fetching image:', error)
     }
   }
-
-  const handleDownload = (url) => {
-    // クリック時にダウンロードリンクを生成
-    const link = document.createElement('a')
-    link.href = imageData
-    link.download = 'myVision.png'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
-
-    // return (
-    //   <div>
-    //     <div onClick={fetchData()}></div>
-    //     {imageData && (
-    //       <div>
-    //         <button onClick={handleDownload}>Download Image</button>
-    //       </div>
-    //     )}
-    //   </div>
-    // );
-
-
-  //  return (
-  //    <div className={styles.feedMyBoardContainer}>
-  //    <button onClick={download}>ダウンロードするよ</button>
-
-  //    <div>
-  //      <button onClick={fetchData}>Fetch Image</button>
-  //      {imageData && (
-  //        <div>
-  //          <img src={imageData} alt="My Vision" />
-  //          <button onClick={handleDownload}>Download Image</button>
-  //        </div>
-  //      )}
-  //    </div>
-  //    </div>
-  //  )
 
       return (
       <div className={styles.feedMyBoardContainer}>
@@ -95,8 +50,7 @@ export default function FeedMyBoard() {
           <div key={index} className={styles.myBoardList}>
             {data.map((item) => (
               <div key={item.id} className={styles.myBoardItem}>
-                {/* <Link href={``} className={styles.templateUrl}> */}
-                <div onClick={fetchData()} className={styles.templateUrl}>
+                <div  className={styles.templateUrl}>
                   <Image
                       src={item.board_thumbnail}
                       priority={true}
@@ -105,12 +59,9 @@ export default function FeedMyBoard() {
                       alt={`テンプレート${item.id}`}
                       className={styles.myBoardImage}
                   />
-                  {/* <div className={styles.caption}>Edit</div> */}
-                  {imageData && (
-                  <div className={styles.downloadButtonWrapper}>
-                    <button onClick={handleDownload} className={styles.downloadButton}>Download</button>
-                  </div>
-                )}
+                  {<div className={styles.downloadButtonWrapper}>
+                    <button onClick={() => downloadImage(item.board_thumbnail)} className={styles.downloadButton}>Download</button>
+                  </div>}
                 </div>
               </div>
             ))}
