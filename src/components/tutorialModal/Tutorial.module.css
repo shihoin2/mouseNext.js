@@ -36,7 +36,7 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 33%;
+  top: 20%;
   left: 35%;
   transform: rotate(162.665deg);
   flex-shrink: 0;
@@ -92,7 +92,7 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 45%;
+  top: 70%;
   left: 43%;
   transform: rotate(180deg);
 }
@@ -186,8 +186,8 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 18%;
-  left: 35%;
+  top: -5%;
+  left: 20%;
   transform: rotate(370deg);
   z-index: 999;
 }
@@ -220,8 +220,8 @@
   width: 257.311px;
   height: 176.585px;
   position: absolute;
-  top: 70%;
-  left: 38%;
+  top: 75%;
+  left: 20%;
   transform: rotate(180deg);
 }
 .bubble_step4_2 {

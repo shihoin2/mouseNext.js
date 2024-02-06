@@ -9,7 +9,7 @@
 /* 要調整 */
 .Overlay.step1 {
   background: radial-gradient(
-    10% 10% at 50% 37%,
+    10% 20% at 50% 50%,
     rgba(248, 248, 248, 0) 80%,
     rgba(122 122 122 / 57%) 100%
   );
@@ -42,7 +42,7 @@
 /* 要調整 */
 .Overlay.step2 {
   background: radial-gradient(
-    30% 40% at 47% 40%,
+    30% 40% at 47% 50%,
     rgba(248, 248, 248, 0) 80%,
     rgba(122 122 122 / 57%) 100%
   );
@@ -51,7 +51,7 @@
 /* 要調整 */
 .Overlay.step3 {
   background: radial-gradient(
-    11% 15% at 53% 55%,
+    11% 15% at 56% 75%,
     rgba(248, 248, 248, 0) 80%,
     rgba(122 122 122 / 57%) 100%
   );
@@ -60,7 +60,7 @@
 /* 要調整 */
 .Overlay.step4 {
   background: radial-gradient(
-    6% 16% at 44% 54%,
+    10% 16% at 30% 54%,
     rgba(248, 248, 248, 0) 80%,
     rgba(122 122 122 / 57%) 100%
   );
