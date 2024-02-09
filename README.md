@@ -1,91 +1,60 @@
-# Laravel Breeze - Next.js Edition 🏝️
+# Vision Board作成アプリ「WEAVE」
+内定直結型エンジニア学習プログラム「APPRENTICE」のチーム開発で作成したWebアプリケーションです。
+![weave_logo](https://github.com/shihoin2/mouseNext.js/assets/135839594/19ddcdfb-f8d4-4e3c-94a6-e10e979164f8)
+本アプリは、ワクワクする未来を形にしたい方向けのプロダクトです。
+自分の理想の未来を、写真と文章で視覚化することで、モチベーションを高めるなど、理想に近づく助けになります。
 
-## Introduction
-
-This repository is an implementation of the [Laravel Breeze](https://laravel.com/docs/starter-kits) application / authentication starter kit frontend in [Next.js](https://nextjs.org). All of the authentication boilerplate is already written for you - powered by [Laravel Sanctum](https://laravel.com/docs/sanctum), allowing you to quickly begin pairing your beautiful Next.js frontend with a powerful Laravel backend.
-
-## Official Documentation
-
-### Installation
-
-First, create a Next.js compatible Laravel backend by installing Laravel Breeze into a [fresh Laravel application](https://laravel.com/docs/installation) and installing Breeze's API scaffolding:
-
-```bash
-# Create the Laravel application...
-laravel new next-backend
-
-cd next-backend
-
-# Install Breeze and dependencies...
-composer require laravel/breeze --dev
-
-php artisan breeze:install api
-
-# Run database migrations...
-php artisan migrate
+# 環境構築
+## イメージのクローン
+フロントエンドのリポジトリ
 ```
-
-Next, ensure that your application's `APP_URL` and `FRONTEND_URL` environment variables are set to `http://localhost:8000` and `http://localhost:3000`, respectively.
-
-After defining the appropriate environment variables, you may serve the Laravel application using the `serve` Artisan command:
-
-```bash
-# Serve the application...
-php artisan serve
+https://github.com/shihoin2/mouseNext.js.git
 ```
-
-Next, clone this repository and install its dependencies with `yarn install` or `npm install`. Then, copy the `.env.example` file to `.env.local` and supply the URL of your backend:
-
+バックエンドのリポジトリ
 ```
-NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
+https://github.com/shihoin2/mouse.git
 ```
-
-Finally, run the application via `npm run dev`. The application will be available at `http://localhost:3000`:
-
+## バックエンド
+### Dockerfile の親ディレクトリ(mouse)へ移動
+```
+cd mouse
+```
+### Docker を起動し、コンテナを作成
+```
+sail up -d
+```
+### 依存関係をインストール・更新
+```
+sail comopser install
+sail composer update
+```
+### サーバーを起動する
+```
+sail artisan serve
+```
+## フロントエンド
+### ライブラリ依存関係のインストール
+```
+npm install
+npm update
+```
+### サーバー起動
 ```
 npm run dev
 ```
 
-> Note: Currently, we recommend using `localhost` during local development of your backend and frontend to avoid CORS "Same-Origin" issues.
-
-### Authentication Hook
-
-This Next.js application contains a custom `useAuth` React hook, designed to abstract all authentication logic away from your pages. In addition, the hook can be used to access the currently authenticated user:
-
-```js
-const ExamplePage = () => {
-    const { logout, user } = useAuth({ middleware: 'auth' })
-
-    return (
-        <>
-            <p>{user?.name}</p>
-
-            <button onClick={logout}>Sign out</button>
-        </>
-    )
-}
-
-export default ExamplePage
-```
-
-> Note: You will need to use [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) (`user?.name` instead of `user.name`) when accessing properties on the user object to account for Next.js's initial server-side render.
-
-### Named Routes
-
-For convenience, [Ziggy](https://github.com/tighten/ziggy#spas-or-separate-repos) may be used to reference your Laravel application's named route URLs from your React application.
-
-## Contributing
-
-Thank you for considering contributing to Breeze Next! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-Please review [our security policy](https://github.com/laravel/breeze-next/security/policy) on how to report security vulnerabilities.
-
-## License
-
-Laravel Breeze Next is open-sourced software licensed under the [MIT license](LICENSE.md).
+# WEAVEの使い方
+## 1. サーバーを起動し、以下の URL でアクセスできます：[http://localhost:8000/]
+ページを開くと、Vision boardのテンプレート一覧が表示されます。
+お好きなテンプレートを選んで、クリックしてください。
+※注意：今はテンプレートが1つしか実装していません。
+## 2. チュートリアルが表示されるので、初めて作成する方は、参考してください。
+![Untitled](https://github.com/shihoin2/mouseNext.js/assets/135839594/d209ea39-b93e-4642-ba55-19d5f8abd56c)
+## 3. 黄色のボックスには、目標を文章で入力することができます。内容は自動的に保存されます。
+## 4. 灰色のボックスには写真を登録できます。手元の好きな画像を登録してください。
+![template1 png](https://github.com/shihoin2/mouseNext.js/assets/135839594/8645e7dd-d1d1-4896-bc10-59885c0519f8)
+## 5. 右上のクエスチョンマークをクリックすると、ヘルプ画面がでてきます。作成時に何を書くか迷ったときにご使用ください。
+![Untitled (1)](https://github.com/shihoin2/mouseNext.js/assets/135839594/1616c03b-6322-4b4c-8026-6f94977219f2)
+## 6. Previewボタンを押すと、作成したVision boardの一覧が表示されます。作成したVision boardは画像としてダウンロード可能です。
+# 完成例
+<img width="1160" alt="demo_tumbnail" src="https://github.com/shihoin2/mouseNext.js/assets/135839594/60ebddda-eaa0-41f4-acc1-9f0b9498fdce">
